@@ -1,0 +1,3 @@
+class RantlyController < ApplicationController
+
+end

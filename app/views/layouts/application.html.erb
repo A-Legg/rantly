@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <p>Rant.ly</p>
+        <div class="links">
+          <%= link_to "login", signin_path %>
+
+        </div>
+    </div>
+
+  </div>
+</header>
+<main>
+   <div class="container">
 
 <%= yield %>
+
+     </div>
+  </main>
 
 </body>
 </html>
