@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  root "rantly#index"
+  root "welcome#index"
 
   get "signin" => "sessions#new", as: :signin
   post "signin" => "sessions#create"
+  delete "signout" => "sessions#destroy"
+
+  get "users/new" => "users#new", as: :register
+  post "users/new" => "users#create"
 
 end

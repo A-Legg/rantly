@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'capybara/rails'
 
-feature 'rantly' do
+feature 'rants' do
 
   scenario "user can visit landing page and see banner and quotes" do
     visit root_path

@@ -1,1 +1,20 @@
-<h1>Test</h1>
+<h1>Login</h1>
+
+<%= form_for @user, url: signin_path, html: { class: "signin-form" } do |f| %>
+  <% f.object.errors.full_messages.each do |error| %>
+    <div class="errors">
+      <%= error %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
