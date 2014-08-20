@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
   def new
-    @user = Users.new
+    @user = User.new
   end
 
   def create
-    @user = Users.create(
+    @user = User.create(
       username: params[:username],
       password_digest: params[:password_digest],
       first_name: params[:first_name],
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     )
 
     @user.save
-      redirect_to "rants/index"
+      redirect_to root_path
 
 
   end
