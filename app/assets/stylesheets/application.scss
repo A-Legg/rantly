@@ -1,0 +1,156 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 3em;
+  box-sizing: border-box;
+
+  border-style: right;
+  border-right-color: lawngreen;
+}
+
+
+h1 {
+  font-size: 95px;
+  margin-top: .05em;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+
+body {
+    font-family: Optima, sans-serif;
+    margin: 0;
+    background-color: grey;
+}
+
+
+
+
+
+
+.header {
+    background-color: black;
+    width: 100%;
+    color: white;
+    height: 4em;
+  a {
+    color: white;
+
+    margin-right: 1em;
+    margin-top: 1.25em;
+  }
+
+}
+
+
+
+
+.logo {
+    text-decoration: none;
+    font-size: 2em;
+    float: left;
+    display: inline-block;
+    border-right: green 1px solid;
+    height: 2em;
+    padding: .5em;
+
+
+}
+
+.link {
+    float: right;
+    margin-top: 1.3em;
+
+}
+
+
+.join {
+    width: 15%;
+    background-color: green;
+    float: right;
+    margin-right: .5em;
+    color: white;
+    font-size: 1em;
+    padding: .5em;
+    margin-top: .75em;
+    cursor: pointer;
+    border: grey solid 1px;
+
+}
+
+main {
+  .container {
+    background: white;
+  }
+}
+
+
+
+.splash {
+    text-align: center;
+    background-color: white;
+    padding-bottom: 5em;
+    padding-top: 5em;
+    margin-left: 0em;
+}
+
+
+
+.quote-splash {
+    background-color: grey;
+
+    color: white;
+    min-height: 400px;
+}
+
+img {
+    display: inline;
+    float: left;
+    margin-right: 1em;
+    margin-top: 2em;
+
+    min-width: 200px;
+    height: 200px;
+}
+
+.text {
+  display: inline;
+
+  float: right;
+
+}
+
+
+
+
+
+
+
+
+
+

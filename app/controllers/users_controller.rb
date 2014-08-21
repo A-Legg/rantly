@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     )
 
     @user.save
-      redirect_to root_path
+      redirect_to '/users'
 
 
   end

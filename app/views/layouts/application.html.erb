@@ -7,22 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="logo">
-      <p>Rant.ly</p>
-          <div class="links">
-          <%= link_to "login", signin_path %>
-
-          <%= link_to "Join", register_path %>
-          </div>
-        </div>
-    </div>
-
+<div class="header">
+  <div class="logo">
+    <%= link_to "Rant.ly", root_path %>
   </div>
-</header>
+  <div class="join">
+    <%= link_to "Join", register_path, method: 'get' %>
+  </div>
+  <div class="link">
+    <%= link_to "login", signin_path %>
+   </div>
+
+ </div>
 <main>
-   <div class="container">
+   <div class="wrapper">
 
 <%= yield %>
 
