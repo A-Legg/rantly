@@ -11,6 +11,8 @@
   <div class="logo">
     <%= link_to "Rant.ly", root_path %>
   </div>
+
+
   <div class="join">
     <%= link_to "Join", register_path, method: 'get' %>
   </div>
@@ -19,13 +21,13 @@
    </div>
 
  </div>
-<main>
-   <div class="wrapper">
 
-<%= yield %>
+    <% if flash[:notice] %>
+      <p class="flash"><%= flash[:notice] %></p>
+    <% end %>
 
-     </div>
-  </main>
-
-</body>
+  <div class="wrapper">
+    <%= yield %>
+   </div>
+  </body>
 </html>

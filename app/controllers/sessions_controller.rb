@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:username])
       # if @user && @user.authenticate(params[:user][:password])
-        session[:user_id] = @user.id
-        redirect_to '/users'
+
+    redirect_to "/users/#{session[:user_id]}"
       # else
       #   @user = User.new(username: params[:user][:username])
       #   @user.errors[:base] << "Username/Password is invalid"
@@ -18,4 +18,9 @@ class SessionsController < ApplicationController
 
   end
 
+  def destroy
+    session.destroy
+    redirect_to signin_path
+
+  end
 end
