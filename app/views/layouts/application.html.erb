@@ -13,6 +13,19 @@
     <div class="logo">
       <%= link_to "Rant.ly", root_path %>
     </div>
+    <span class="links">
+      <%= link_to "Dashboard", users_path %>
+    </span>
+    <span class="links">
+      <%= link_to "Following", "/users/:id/following" %>
+    </span>
+    <span class="links">
+      <%= link_to "Favorites", "/users/:id/favorites" %>
+    </span>
+    <span class="links">
+      <%= link_to "Search", "/users/:id/search" %>
+    </span>
+
     <div class="join">
       <%= link_to "Logout", signout_path %>
     </div>

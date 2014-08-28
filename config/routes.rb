@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy", as: :signout
 
   resources 'users'
+  resources 'rants'
+
 
   # get "users/new" => "users#new", as: :register
   # post "users/new" => "users#create"
