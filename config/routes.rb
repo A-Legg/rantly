@@ -4,13 +4,16 @@ Rails.application.routes.draw do
 
   get "signin" => "sessions#new", as: :signin
   post "signin" => "sessions#create"
-  delete "signout" => "sessions#destroy", as: :signout
 
-  get "users/new" => "users#new", as: :register
-  post "users/new" => "users#create"
+  get "signout" => "sessions#destroy", as: :signout
 
-  get "users" => "users#index"
+  resources 'users'
 
-  get "users/:id" => "users#home", as: :users_index
+  # get "users/new" => "users#new", as: :register
+  # post "users/new" => "users#create"
+  #
+  # get "users" => "users#index"
+  #
+  # get "users/:id" => "users#dashboard", as: :dashboard
 
 end

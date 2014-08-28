@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_filter :ensure_authenticated_user
 
   def new
     @user = User.new
@@ -6,21 +7,22 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:username])
-      # if @user && @user.authenticate(params[:user][:password])
+    @user = User.find_by(username: params[:user][:username])
 
-    redirect_to "/users/#{session[:user_id]}"
-      # else
-      #   @user = User.new(username: params[:user][:username])
-      #   @user.errors[:base] << "Username/Password is invalid"
-      #   render signin_path
-      # end
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user.id)
+    else
+
+      @user.errors[:base] << "Username or Password is incorrect"
+      render :new
+    end
 
   end
 
   def destroy
     session.destroy
-    redirect_to signin_path
+    redirect_to root_path
 
   end
 end

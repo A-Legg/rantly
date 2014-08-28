@@ -1,11 +1,16 @@
-<h1>Login</h1>
+<h1>Welcome!</h1>
 
-<%= form_for @user, url: signin_path, html: { class: "signin-form" } do |f| %>
-  <% f.object.errors.full_messages.each do |error| %>
-    <div class="errors">
-      <%= error %>
-    </div>
-  <% end %>
+<%= form_for @user, url: signin_path, html: {class: "signin-form"} do |f| %>
+
+  <div class="errors">
+    <% if @user.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |error| %>
+        <%=   error %>
+        <br/>
+      <% end %>
+
+    <% end %>
+  </div>
   <div>
     <%= f.label :username %>
     <%= f.text_field :username, autofocus: true %>
@@ -15,6 +20,7 @@
     <%= f.password_field :password %>
   </div>
   <div>
-    <%= f.submit "Login" %>
+    <%= f.submit "Login", :class => "btn btn-success" %>
   </div>
+
 <% end %>

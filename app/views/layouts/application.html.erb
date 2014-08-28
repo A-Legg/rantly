@@ -2,32 +2,42 @@
 <html>
 <head>
   <title>Rantly</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="header">
-  <div class="logo">
-    <%= link_to "Rant.ly", root_path %>
-  </div>
+
+  <% if current_user %>
+    <div class="logo">
+      <%= link_to "Rant.ly", root_path %>
+    </div>
+    <div class="join">
+      <%= link_to "Logout", signout_path %>
+    </div>
+  <% else %>
+    <div class="logo">
+      <%= link_to "Rant.ly", root_path %>
+    </div>
 
 
-  <div class="join">
-    <%= link_to "Join", register_path, method: 'get' %>
-  </div>
-  <div class="link">
-    <%= link_to "login", signin_path %>
-   </div>
+    <div class="join">
+      <%= link_to "Join", new_user_path, method: 'get' %>
+    </div>
+    <div class="link">
+      <%= link_to "login", signin_path %>
+    </div>
+  <% end %>
 
- </div>
+</div>
 
-    <% if flash[:notice] %>
-      <p class="flash"><%= flash[:notice] %></p>
-    <% end %>
+<% if flash[:notice] %>
+  <p class="flash"><%= flash[:notice] %></p>
+<% end %>
 
-  <div class="wrapper">
-    <%= yield %>
-   </div>
-  </body>
+<div class="wrapper">
+  <%= yield %>
+</div>
+</body>
 </html>
