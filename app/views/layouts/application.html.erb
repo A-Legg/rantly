@@ -7,14 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
+<section class="header">
 
   <% if current_user %>
     <div class="logo">
       <%= link_to "Rant.ly", root_path %>
     </div>
     <span class="links">
-      <%= link_to "Dashboard", users_path %>
+      <%= link_to "Dashboard", user_path(session[:user_id]) %>
     </span>
     <span class="links">
       <%= link_to "Following", "/users/:id/following" %>
@@ -43,7 +43,7 @@
     </div>
   <% end %>
 
-</div>
+</section>
 
 <% if flash[:notice] %>
   <p class="flash"><%= flash[:notice] %></p>

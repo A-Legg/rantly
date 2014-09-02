@@ -1,4 +1,4 @@
-<div class="errors">
+<div class="errors" xmlns="http://www.w3.org/1999/html">
   <% if @user.errors.full_messages.any? %>
     <% @user.errors.full_messages.each do |error| %>
       <%= error %>
@@ -8,28 +8,56 @@
   <% end %>
 </div>
 
+<section class="dashboard-form">
 
-<%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
-
-<div class="rant-form">
-
-  <%= form_for @rant, url: rants_path do |f| %>
+  <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
 
 
-    <%= f.label :rant %>
-    <%= f.text_area :rant %>
 
+  <div class="rant-form">
 
-    <%= f.submit "RANT" %>
+    <%= form_for @rant, url: rants_path do |f| %>
+      <div>
+        <p>A rant about:</p>
+        <%= f.text_field :description %>
+      </div>
+      <div>
+        <p>Rant:</p>
+        <%= f.text_area :rant %>
+      </div>
+
+      <div class="rant-submit">
+        <%= f.submit "RANT" %>
+      </div>
+    <% end %>
+  </div>
+
+</section>
+
+<section class="latest-rants">
+  <p>Latest Rants</p>
+
+  <% @latest_rants.each do |rant| %>
+    <% if rant.user_id != session[:user_id] %>
+    <ul><li><%= rant.rant %></li></ul>
   <% end %>
-</div>
+    <% end %>
+</section>
 
-<h1>My Rants</h1>
-<% @rant.each do |rant| %>
 
-  <section class="my-rants">
-    <li><%= rant.rant if rant.id == current_user.id %></li>
-<% end %>
+</section>
+
+
+<section class="my-rants">
+  <p>My Rants</p>
+
+  <% @rants.each do |rant| %>
+
+
+    <ul><li><%= rant.rant %>
+      <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
+    </li></ul>
+  <% end %>
 </section>
 
 

@@ -27,10 +27,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+
     @rant = Rant.new
-    @rants = Rant.find(params[:id])
 
+    @rants = Rant.where(:user_id => params[:id]).order("created_at DESC")
 
+    @latest_rants = Rant.order("created_at DESC")
 
   end
 

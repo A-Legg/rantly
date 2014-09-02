@@ -16,4 +16,19 @@ class RantsController < ApplicationController
 
   end
 
+  def destroy
+    @rant = Rant.find(params[:id])
+
+
+
+    @rant.destroy
+
+
+
+
+    redirect_to user_path(session[:user_id])
+  end
+
+
+
 end

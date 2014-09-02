@@ -15,9 +15,7 @@
  */
 
 .wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
+    width: 100%;
     display: flex;
 }
 
@@ -45,7 +43,7 @@ h2 {
 body {
     font-family: Optima, sans-serif;
     margin: 0;
-    background-color: grey;
+    background-color: white;
 }
 
 
@@ -102,6 +100,20 @@ body {
 
 }
 
+.rant-submit {
+
+  width: 15%;
+  background-color: green;
+
+  margin-right: .5em;
+  color: white;
+  font-size: 1em;
+  padding: .5em;
+  margin-top: .75em;
+  border: grey solid 1px;
+
+}
+
 main {
   .container {
     background: white;
@@ -150,8 +162,20 @@ img {
   float: center;
 }
 
-.signup-form {
-  float: left;
+
+
+.dashboard-form {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: baseline;
+  background-color: grey;
+
+  width: 300px;
+  height: 1000px;
+
 }
 
 
