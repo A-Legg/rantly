@@ -34,22 +34,32 @@
 
 </section>
 
-<section class="latest-rants">
-  <p>Latest Rants</p>
+<article class="latest-rants">
+  <header>
+  <h1>Latest Rants</h1>
+  </header>
 
   <% @latest_rants.each do |rant| %>
     <% if rant.user_id != session[:user_id] %>
+    <section class="user-info">
+      <%= rant.user.first_name %>
+      <%= button_to "Follow",  user_followings_path(:user_id => current_user.id, :followed_id => rant.user_id),  method: :post %>
+    </section>
+
+
     <ul><li><%= rant.rant %></li></ul>
   <% end %>
     <% end %>
-</section>
+</article>
 
 
 </section>
 
 
-<section class="my-rants">
-  <p>My Rants</p>
+<article class="my-rants">
+  <header>
+  <h1>My Rants</h1>
+  </header>
 
   <% @rants.each do |rant| %>
 
@@ -58,7 +68,7 @@
       <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
     </li></ul>
   <% end %>
-</section>
+</article>
 
 
 

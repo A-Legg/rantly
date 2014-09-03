@@ -17,13 +17,13 @@
       <%= link_to "Dashboard", user_path(session[:user_id]) %>
     </span>
     <span class="links">
-      <%= link_to "Following", "/users/:id/following" %>
+      <%= link_to "Following", "/users/#{current_user.id}/followings  " %>
     </span>
     <span class="links">
-      <%= link_to "Favorites", "/users/:id/favorites" %>
+      <%= link_to "Favorites", "/users/#{current_user.id}/favorites" %>
     </span>
     <span class="links">
-      <%= link_to "Search", "/users/:id/search" %>
+      <%= link_to "Search", "/users/#{current_user.id}/search" %>
     </span>
 
     <div class="join">
@@ -49,8 +49,8 @@
   <p class="flash"><%= flash[:notice] %></p>
 <% end %>
 
-<div class="wrapper">
+<section class="wrapper">
   <%= yield %>
-</div>
+</section>
 </body>
 </html>

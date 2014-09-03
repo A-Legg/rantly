@@ -7,8 +7,19 @@ Rails.application.routes.draw do
 
   get "signout" => "sessions#destroy", as: :signout
 
-  resources 'users'
+  resources 'users' do
+    resources 'followings'
+
+  end
   resources 'rants'
+
+
+  # get "users/:id/followings" => "followings#index", as: :followings
+  #
+  # post "users/:id/follow" => "followings#create", as: :follow
+
+
+
 
 
   # get "users/new" => "users#new", as: :register
