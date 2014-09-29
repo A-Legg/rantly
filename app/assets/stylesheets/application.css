@@ -14,21 +14,8 @@
  *= require_self
  */
 
-.wrapper {
-    width: 100%;
-    display: flex;
-}
 
-//.container {
-//  display: flex;
-//  width: 960px;
-//  margin: 0 auto;
-//  padding: 3em;
-//  box-sizing: border-box;
-//
-//  border-style: right;
-//  border-right-color: lawngreen;
-//}
+
 
 
 h1 {
@@ -180,41 +167,33 @@ img {
 
 }
 
-.latest-rants {
 
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-content: stretch;
-    align-items: baseline;
-    width: 700px;
-    height: 400px;
-  text-align: center;
 
-  h1 {
-    font-size: 25px;
-    text-align: center;
-  }
 
-  }
-.my-rants {
-
+.dash-flex-container {
   display:flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   align-content: stretch;
-  align-items: baseline;
-  width: 700px;
-  height: 400px;
-  text-align: center;
+  align-items: stretch;
 
+}
 
-  h1 {
-    font-size: 25px;
-    text-align: center;
-  }
+.dash-flex1 {
+  /*flex: 0 0 300px;*/
+  width: 30%;
+  padding: 0px 00px 0px 00px;
+}
+.dash-flex2 {
+  /*flex: 0 0 300px;*/
+  width: 60%;
+  background-color: white;
+  padding: 0px 20px 0px 20px;
+}
+h1.rant-label {
+  font-size: 34px;
+  margin: 0;
 
 }
 

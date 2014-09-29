@@ -8,80 +8,58 @@
   <% end %>
 </div>
 
+<div class="dash-flex-container">
+  <div class="dash-flex1">
+    <section class="dashboard-form">
+      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
+      <%= form_for @rant, url: rants_path do |f| %>
+        <div>
+          <p>A rant about:</p>
+          <%= f.text_field :description %>
+        </div>
+        <div>
+          <p>Rant:</p>
+          <%= f.text_area :rant %>
+        </div>
 
-
-<section class="dashboard-form">
-
-  <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
-
-
-
-  <div class="rant-form">
-
-    <%= form_for @rant, url: rants_path do |f| %>
-      <div>
-        <p>A rant about:</p>
-        <%= f.text_field :description %>
-      </div>
-      <div>
-        <p>Rant:</p>
-        <%= f.text_area :rant %>
-      </div>
-
-      <div class="rant-submit">
-        <%= f.submit "RANT" %>
-      </div>
-    <% end %>
+        <div class="rant-submit">
+          <%= f.submit "RANT" %>
+        </div>
+      <% end %>
+    </section>
   </div>
 
-</section>
 
+  <div class="dash-flex2">
+    <h1 class="text-center rant-label">Latest Rants</h1>
 
-<div class="latest-rants">
-  <header>
-    <h1>Latest Rants</h1>
-  </header>
+    <% @users.each do |user| %>
+      <div>
 
-  <% @rants.each do |rant| %>
-    <% if rant.user_id != session[:user_id] %>
-      <div class="user-info">
-        <%= rant.user %>
-        <% if current_user.followed_user_ids.include?(rant.user_id) %>
-          <%= button_to "Unfollow", user_following_relationship_path(:user_id => rant.user_id, :id => current_user.id), {:method => :delete} %>
-        <% else %>
-          <%= button_to "Follow", user_follow_path(current_user, :followed_user_id == rant.user_id) %>
+        <% user.rants.each do |rant| %>
+          <% if rant.user_id != session[:user_id] %>
+
+            <div><p class="font-10pt"><%= link_to "#{user.username}", rant_path(rant.id) %>
+              | <%= link_to "Rant", rant_path(rant.id) %> - <%= rant.rant %></p></div>
+            <% if current_user.followed_user_ids.include?(rant.user_id) %>
+              <%= button_to "Unfollow", user_following_relationship_path(:user_id => rant.user_id, :id => current_user.id), {:method => :delete} %>
+            <% else %>
+              <%= button_to "Follow", user_follow_path(current_user, :followed_user_id == rant.user_id) %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
-
-
-      <ul>
-        <li><%= rant.rant %></li>
-      </ul>
     <% end %>
-  <% end %>
-</div>
 
-
-
-
-
-
-
-<div class="my-rants">
-  <header>
-    <h1>My Rants</h1>
-  </header>
-
-  <% @rants.each do |rant| %>
-    <% if rant.user_id == session[:user_id] %>
-
-      <ul>
-        <li><%= rant.rant %>
-          <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
-        </li>
-      </ul>
+    <h1 class="text-center rant-label">My Rants</h1>
+    <% @user.rants.each do |rant| %>
+      <li><%= rant.rant %>
+        <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
+      </li>
     <% end %>
-  <% end %>
-</div>
 
+
+  </div>
+
+</div>
 

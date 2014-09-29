@@ -1,7 +1,35 @@
-<h1>Following</h1>
+<div class="dash-flex-container">
+  <div class="dash-flex1">
+    <section class="dashboard-form">
+      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(current_user.id) %>
+      <%= form_for @rant, url: rants_path do |f| %>
+        <div>
+          <p>A rant about:</p>
+          <%= f.text_field :description %>
+        </div>
+        <div>
+          <p>Rant:</p>
+          <%= f.text_area :rant %>
+        </div>
+
+        <div class="rant-submit">
+          <%= f.submit "RANT" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
 
 
-<% @following_relationships.each do |follower| %>
- <%= follower.followed_user.first_name %>
+<div class="dash-flex2">
+  <h1 class="text-center rant-label">Following</h1>
 
-<% end %>
+
+  <% @following_relationships.each do |follower| %>
+    <li>
+      <%= follower.followed_user.first_name %>
+      <%= button_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+    </li>
+  <% end %>
+
+</div>
+  </div>
