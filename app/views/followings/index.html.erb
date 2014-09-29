@@ -1,6 +1,7 @@
 <h1>Following</h1>
 
 
-<% @following.each do |followed| %>
-<%= followed.followed_id %>
+<% @followings.each do |user| %>
+<%= user.first_name %>
 <% end %>
+

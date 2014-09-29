@@ -5,30 +5,27 @@ class RantsController < ApplicationController
   end
 
   def create
-    @rant = Rant.new(
-      rant: params[:rant][:rant],
-      description: params[:rant][:description],
-      user_id: current_user.id
-    )
+    @rant = Rant.new(rant_params)
+    @rant.user_id = current_user.id
     if @rant.save
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path(@user.id)
     end
-
   end
 
   def destroy
     @rant = Rant.find(params[:id])
-
-
-
     @rant.destroy
-
-
-
-
-    redirect_to user_path(session[:user_id])
+    redirect_to dashboard_path(session[:user_id])
   end
 
 
 
+
+
+
+  private
+
+  def rant_params
+    params.require(:rant).permit(:rant, :description)
+ end
 end

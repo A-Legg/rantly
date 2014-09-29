@@ -7,26 +7,20 @@ Rails.application.routes.draw do
 
   get "signout" => "sessions#destroy", as: :signout
 
-  resources 'users' do
-    resources 'followings'
+  resources :users, only: [:new, :create, :show, :edit] do
+    resources :following_relationships, :path => 'following', only: [:show, :create, :index, :destroy]
+    post 'follow' => 'following_relationships#create'
+
 
   end
-  resources 'rants'
 
 
-  # get "users/:id/followings" => "followings#index", as: :followings
-  #
-  # post "users/:id/follow" => "followings#create", as: :follow
 
+  resources :dashboard, only: [:show]
+  resources :rants
 
 
 
 
-  # get "users/new" => "users#new", as: :register
-  # post "users/new" => "users#create"
-  #
-  # get "users" => "users#index"
-  #
-  # get "users/:id" => "users#dashboard", as: :dashboard
 
 end

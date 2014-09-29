@@ -5,35 +5,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      username: params[:user][:username],
-      password: params[:user][:password],
-      first_name: params[:user][:first_name],
-      last_name: params[:user][:last_name],
-      bio: params[:user][:bio]
-    )
-
-
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'You have registered successfully!'
       session[:user_id] = @user.id
-      redirect_to "/users/#{@user.id}"
+      redirect_to dashboard_path(@user)
     else
       render '/users/new'
     end
-
-
   end
 
   def show
     @user = User.find(params[:id])
-
-
     @rant = Rant.new
+    @rants = Rant.all
 
-    @rants = Rant.where(:user_id => params[:id]).order("created_at DESC")
-
-    @latest_rants = Rant.order("created_at DESC")
 
   end
 
@@ -44,15 +30,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.username = params[:user][:username]
-    @user.password = params[:user][:password]
-    @user.first_name = params[:user][:first_name]
-    @user.last_name = params[:user][:last_name]
-    @user.bio = params[:user][:bio]
+    @user = User.update(user_params)
     @user.save
     redirect_to user_path
 
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio)
+  end
+
+
 
 
 end

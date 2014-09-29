@@ -8,6 +8,8 @@
   <% end %>
 </div>
 
+
+
 <section class="dashboard-form">
 
   <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
@@ -31,7 +33,6 @@
       </div>
     <% end %>
   </div>
-
 </section>
 
 <article class="latest-rants">
@@ -43,7 +44,7 @@
     <% if rant.user_id != session[:user_id] %>
     <section class="user-info">
       <%= rant.user.first_name %>
-      <%= button_to "Follow",  user_followings_path(:user_id => current_user.id, :followed_id => rant.user_id),  method: :post %>
+      <%= button_to "Follow",  user_followings_path(:user_id => current_user.id, :followed_user_id => rant.user_id),  method: :post %>
     </section>
 
 
