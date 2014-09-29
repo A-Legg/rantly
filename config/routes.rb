@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy", as: :signout
 
   resources :users, only: [:new, :create, :show, :edit] do
-    resources :following_relationships, :path => 'following', only: [:show, :create, :index, :destroy]
+    resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
     post 'follow' => 'following_relationships#create'
 
 

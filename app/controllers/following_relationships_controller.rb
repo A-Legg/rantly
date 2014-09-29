@@ -1,4 +1,8 @@
 class FollowingRelationshipsController < ApplicationController
+
+  def index
+   @following_relationships = FollowingRelationship.where(:follower_id => current_user.id)
+  end
   def create
 
     @rant = Rant.find_by(params[:rant_id])

@@ -44,7 +44,7 @@ Rails.application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-  # Prepend all log lines with the followings tags.
+  # Prepend all log lines with the following_relationships tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups.

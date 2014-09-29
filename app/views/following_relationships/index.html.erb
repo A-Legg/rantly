@@ -1,0 +1,7 @@
+<h1>Following</h1>
+
+
+<% @following_relationships.each do |follower| %>
+ <%= follower.followed_user.first_name %>
+
+<% end %>
