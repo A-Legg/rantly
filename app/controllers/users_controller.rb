@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @rant = Rant.new
-    @rants = Rant.all
+
 
 
   end
@@ -41,8 +41,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :first_name, :last_name, :bio)
   end
-
-
-
 
 end

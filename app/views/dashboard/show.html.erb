@@ -1,6 +1,6 @@
 <div class="errors" xmlns="http://www.w3.org/1999/html">
-  <% if @user.errors.full_messages.any? %>
-    <% @user.errors.full_messages.each do |error| %>
+  <% if @rant.errors.full_messages.any? %>
+    <% @rant.errors.full_messages.each do |error| %>
       <%= error %>
       <br/>
     <% end %>
@@ -35,12 +35,11 @@
 
     <% @users.each do |user| %>
       <div>
-
         <% user.rants.each do |rant| %>
           <% if rant.user_id != session[:user_id] %>
 
-            <div><p class="font-10pt"><%= link_to "#{user.username}", rant_path(rant.id) %>
-              | <%= link_to "Rant", rant_path(rant.id) %> - <%= rant.rant %></p></div>
+            <div><p class="font-10pt"><%= link_to "#{user.first_name}", user_path(user.id) %>
+              |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
             <% if current_user.followed_user_ids.include?(rant.user_id) %>
               <%= button_to "Unfollow", user_following_relationship_path(:user_id => rant.user_id, :id => current_user.id), {:method => :delete} %>
             <% else %>
@@ -53,13 +52,11 @@
 
     <h1 class="text-center rant-label">My Rants</h1>
     <% @user.rants.each do |rant| %>
-      <li><%= rant.rant %>
+      <div>
+      <%= rant.rant %>
         <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
-      </li>
+      </div>
     <% end %>
-
-
   </div>
-
 </div>
 

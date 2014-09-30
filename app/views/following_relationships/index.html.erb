@@ -25,10 +25,10 @@
 
 
   <% @following_relationships.each do |follower| %>
-    <li>
-      <%= follower.followed_user.first_name %>
+
+      <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
       <%= button_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
-    </li>
+
   <% end %>
 
 </div>

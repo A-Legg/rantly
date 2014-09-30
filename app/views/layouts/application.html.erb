@@ -4,18 +4,20 @@
   <title>Rantly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <%= stylesheet_link_tag "http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" %>
+
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<section class="header">
+<section class="header-flex-container">
 
   <% if current_user %>
-    <div class="logo">
+    <span class="logo">
       <%= link_to "Rant.ly", root_path %>
-    </div>
+    </span>>
+    <div class="app-flex4 dash-links">
+
     <span class="links">
       <%= link_to "Dashboard", dashboard_path(session[:user_id]) %>
     </span>
@@ -28,10 +30,12 @@
     <span class="links">
       <%= link_to "Search", "/users/#{current_user.id}/search" %>
     </span>
-
-    <div class="join">
-      <%= link_to "Logout", signout_path %>
     </div>
+
+      <div class="join">
+        <%= link_to "Logout", signout_path %>
+      </div>
+
   <% else %>
     <div class="logo">
       <%= link_to "Rant.ly", root_path %>
@@ -41,6 +45,7 @@
     <div class="join">
       <%= link_to "Join", new_user_path, method: 'get' %>
     </div>
+
     <div class="link">
       <%= link_to "login", signin_path %>
     </div>
