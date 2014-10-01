@@ -39,11 +39,12 @@
           <% if rant.user_id != session[:user_id] %>
 
             <div><p class="font-10pt"><%= link_to "#{user.first_name}", user_path(user.id) %>
+
               |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
-            <% if current_user.followed_user_ids.include?(rant.user_id) %>
-              <%= button_to "Unfollow", user_following_relationship_path(:user_id => rant.user_id, :id => current_user.id), {:method => :delete} %>
+            <% if current_user.following?(user) %>
+              <%= unfollow_button(user) %>
             <% else %>
-              <%= button_to "Follow", user_follow_path(current_user, :followed_user_id == rant.user_id) %>
+              <%= follow_button(user) %>
             <% end %>
           <% end %>
         <% end %>

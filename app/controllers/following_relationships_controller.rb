@@ -4,26 +4,20 @@ class FollowingRelationshipsController < ApplicationController
     @rant = Rant.new
    @following_relationships = FollowingRelationship.where(:follower_id => current_user.id)
   end
+
   def create
 
-    @rant = Rant.find_by(params[:rant_id])
-    @following_relationship = FollowingRelationship.new(
-      :follower_id => current_user.id,
-      :followed_user_id => @rant.user_id
-    )
-
-    @following_relationship.save
-    redirect_to dashboard_path(current_user)
-
-
+    current_user.follow(user)
+    redirect_to dashboard_path(current_user), notice: "Now following user"
   end
 
   def destroy
-    @rant = Rant.find_by(params[:rant_id])
-    @following_relationship = FollowingRelationship.where(:follower_id => current_user.id, :followed_user_id => @rant.user_id).first
-    @following_relationship.destroy
-    redirect_to dashboard_path(current_user)
+
+    current_user.unfollow(user)
+    redirect_to dashboard_path(current_user), notice: "No longer following user"
   end
+
+
 
   private
 
