@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -19,12 +20,12 @@
 
 
 h1 {
-  font-size: 95px;
-  margin-top: .05em;
-}
+   font-size: 95px;
+   margin-top: .05em;
+   }
 
 h2 {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 
@@ -45,12 +46,12 @@ body {
     width: 100%;
     color: white;
     height: 4em;
-  a {
+a {
     color: white;
 
     margin-right: 1em;
     margin-top: 1.25em;
-  }
+}
 
 }
 
@@ -73,18 +74,18 @@ body {
 
 
 .join {
-     flex: 0 0 180px;
-     width: 15%;
-     background-color: green;
-     float: right;
-     margin-right: .5em;
-     color: white;
-     font-size: 2em;
-     padding: .5em;
-     margin-top: .75em;
-     border: grey solid 1px;
+    flex: 0 0 180px;
+    width: 15%;
+    background-color: green;
+    float: right;
+    margin-right: .5em;
+    color: white;
+    font-size: 2em;
+    padding: .5em;
+    margin-top: .75em;
+    border: grey solid 1px;
 
- }
+}
 
 .app-flex5 {
     flex: 0 0 180px;
@@ -96,22 +97,22 @@ body {
 
 .rant-submit {
 
-  width: 15%;
-  background-color: green;
+    width: 15%;
+    background-color: green;
 
-  margin-right: .5em;
-  color: white;
-  font-size: 1em;
-  padding: .5em;
-  margin-top: .75em;
-  border: grey solid 1px;
+    margin-right: .5em;
+    color: white;
+    font-size: 1em;
+    padding: .5em;
+    margin-top: .75em;
+    border: grey solid 1px;
 
 }
 
 //main {
 //  .container {
-//    background: white;
-//  }
+    //    background: white;
+    //  }
 //}
 
 
@@ -144,31 +145,31 @@ img {
 }
 
 .text {
-  display: inline;
+    display: inline;
 
-  float: right;
+    float: right;
 
 }
 
 .flash {
-  display: inline-block;
-  background-color: lightgreen;
-  float: center;
+    display: inline-block;
+    background-color: lightgreen;
+    float: center;
 }
 
 
 
 .dashboard-form {
-  display:flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: stretch;
-  align-items: baseline;
-  background-color: grey;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: baseline;
+    background-color: grey;
 
-  width: 300px;
-  height: 1000px;
+    width: 300px;
+    height: 1000px;
 
 }
 .header-flex-container {
@@ -199,12 +200,12 @@ img {
 
 
 .dash-flex-container {
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: stretch;
-  align-items: stretch;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
 .links {
     font-size: 25px;
 }
@@ -212,19 +213,19 @@ img {
 }
 
 .dash-flex1 {
-  /*flex: 0 0 300px;*/
-  width: 30%;
-  padding: 0px 00px 0px 00px;
+    /*flex: 0 0 300px;*/
+    width: 30%;
+    padding: 0px 00px 0px 00px;
 }
 .dash-flex2 {
-  /*flex: 0 0 300px;*/
-  width: 60%;
-  background-color: white;
-  padding: 0px 20px 0px 20px;
+    /*flex: 0 0 300px;*/
+    width: 60%;
+    background-color: white;
+    padding: 0px 20px 0px 20px;
 }
 h1.rant-label {
-  font-size: 34px;
-  margin: 0;
+    font-size: 34px;
+    margin: 0;
 
 }
 
@@ -242,8 +243,9 @@ h1.rant-label {
     padding: 2em;
     margin: 2em auto;
     background: white;
+}
 
-> div {
+.login-flex > div {
       padding: .8em 0;
   }
 
@@ -281,7 +283,7 @@ input[type=submit] {
     align-content: stretch;
     align-items: stretch;
     width: 60%;
-   text-align: center;
+    text-align: center;
     padding: 0px 20px 0px 20px;
 
 }
@@ -289,6 +291,7 @@ input[type=submit] {
 .unfollow-button {
     float: right;
 }
+
 
 
 

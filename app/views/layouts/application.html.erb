@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html>
 <head>
   <title>Rantly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,7 +15,7 @@
   <% if current_user %>
     <span class="logo">
       <%= link_to "Rant.ly", root_path %>
-    </span>>
+    </span>
     <div class="app-flex4 dash-links">
 
     <span class="links">
@@ -32,9 +32,9 @@
     </span>
     </div>
 
-      <div class="join">
-        <%= link_to "Logout", signout_path %>
-      </div>
+    <div class="join">
+      <%= link_to "Logout", signout_path %>
+    </div>
 
   <% else %>
     <div class="logo">
@@ -58,7 +58,9 @@
 <% end %>
 
 <section class="wrapper">
-  <%= yield %>
+
+    <%= yield %>
+
 </section>
 </body>
 </html>

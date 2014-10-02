@@ -41,11 +41,9 @@
             <div><p class="font-10pt"><%= link_to "#{user.first_name}", user_path(user.id) %>
 
               |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
-            <% if current_user.following?(user) %>
-              <%= unfollow_button(user) %>
-            <% else %>
+
               <%= follow_button(user) %>
-            <% end %>
+
           <% end %>
         <% end %>
       </div>
@@ -54,10 +52,9 @@
     <h1 class="text-center rant-label">My Rants</h1>
     <% @user.rants.each do |rant| %>
       <div>
-      <%= rant.rant %>
+        <%= rant.rant %>
         <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
       </div>
     <% end %>
   </div>
 </div>
-

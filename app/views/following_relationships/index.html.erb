@@ -20,16 +20,16 @@
   </div>
 
 
-<div class="dash-flex2">
-  <h1 class="text-center rant-label">Following</h1>
+  <div class="dashboard-rants">
+    <h1 class="rant-label">Following</h1>
 
 
-  <% @following_relationships.each do |follower| %>
+    <% @following_relationships.each do |follower| %>
 
       <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
       <%= button_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
 
-  <% end %>
+    <% end %>
 
-</div>
   </div>
+</div>

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   has_many :followers, through: :follower_relationships
 
+  has_many :favorites
+
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
 
@@ -32,5 +34,14 @@ class User < ActiveRecord::Base
   def unfollow(user)
     followed_users.delete(user)
   end
+
+  def favorite(rant)
+    favorites << rant
+  end
+
+  def unfavorite(rant)
+    favorites.delete(rant)
+  end
+
 
 end
