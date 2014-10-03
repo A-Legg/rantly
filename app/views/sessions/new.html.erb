@@ -14,14 +14,15 @@
     </div>
     <div>
       <%= f.label :username %>
-      <%= f.text_field :username, autofocus: true %>
+      <%= f.text_field :username, autofocus: true, :size => "110x10" %>
     </div>
     <div>
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, :size => "110x10" %>
     </div>
+
     <div>
-      <%= f.submit "Login", :class => "btn btn-success" %>
+      <%= f.submit "Login", :class => "btn btn-success", :size => "110x10" %>
     </div>
 
   <% end %>
