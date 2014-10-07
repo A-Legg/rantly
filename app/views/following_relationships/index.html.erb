@@ -5,11 +5,11 @@
       <%= form_for @rant, url: rants_path do |f| %>
         <div>
           <p>A rant about:</p>
-          <%= f.text_field :description %>
+          <%= f.text_field :description, :size => '70x15' %>
         </div>
         <div>
           <p>Rant:</p>
-          <%= f.text_area :rant %>
+          <%= f.text_area :rant, :size => '50x30' %>
         </div>
 
         <div class="rant-submit">
@@ -20,7 +20,7 @@
   </div>
 
 
-  <div class="dashboard-rants">
+  <div class="dash-flex2">
     <h1 class="rant-label">Following</h1>
 
 
