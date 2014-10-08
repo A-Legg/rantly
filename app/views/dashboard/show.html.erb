@@ -4,14 +4,13 @@
       <%= error %>
       <br/>
     <% end %>
-
   <% end %>
 </div>
 
 <div class="dash-flex-container">
   <div class="dash-flex1">
     <section class="dashboard-form">
-      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %>
+      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
       <%= form_for @rant, url: rants_path do |f| %>
         <div>
           <p>A rant about:</p>
@@ -21,7 +20,6 @@
           <p>Rant:</p>
           <%= f.text_area :rant, :size => '50x30' %>
         </div>
-
         <div class="rant-submit">
           <%= f.submit "RANT" %>
         </div>
@@ -32,23 +30,17 @@
 
   <div class="dash-flex2">
     <h1 class="text-center rant-label">Latest Rants</h1>
-
     <% @users.each do |user| %>
       <div>
         <% user.rants.each do |rant| %>
           <% if rant.user_id != session[:user_id] %>
-
-            <div><p class="font-10pt"><%= link_to "#{user.first_name}", user_path(user.id) %>
-
+            <div class="ranter-name"><p class="ranter-name"><%= link_to "#{user.first_name}", user_path(user.id) %>
               |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
-
-              <%= follow_button(user) %>
-
+            <%= follow_button(user) %>
           <% end %>
         <% end %>
       </div>
     <% end %>
-
     <h1 class="text-center rant-label">My Rants</h1>
     <% @user.rants.each do |rant| %>
       <div>

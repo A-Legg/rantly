@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
 
   def following?(user)
     followed_user_ids.include? user.id
-
   end
 
   def follow(user)
@@ -34,14 +33,5 @@ class User < ActiveRecord::Base
   def unfollow(user)
     followed_users.delete(user)
   end
-
-  def favorite(rant)
-    favorites << rant
-  end
-
-  def unfavorite(rant)
-    favorites.delete(rant)
-  end
-
 
 end

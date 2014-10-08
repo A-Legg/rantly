@@ -14,6 +14,8 @@ class RantsController < ApplicationController
     @rant.user_id = current_user.id
     if @rant.save
       redirect_to dashboard_path(@user.id)
+    else
+      render dashboard_path(current_user)
     end
   end
 
@@ -24,13 +26,9 @@ class RantsController < ApplicationController
   end
 
 
-
-
-
-
   private
 
   def rant_params
     params.require(:rant).permit(:rant, :description)
- end
+  end
 end

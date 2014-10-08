@@ -18,8 +18,6 @@ class FavoritesController < ApplicationController
   def index
     @user = current_user
     @favorites = Favorite.where(:user_id => current_user.id)
-
   end
-
 
 end

@@ -11,7 +11,6 @@
           <p>Rant:</p>
           <%= f.text_area :rant, :size => '50x30' %>
         </div>
-
         <div class="rant-submit">
           <%= f.submit "RANT" %>
         </div>
@@ -24,20 +23,14 @@
     <h1 class="text-center rant-label">
       <%= @user.first_name %> <%= @user.last_name %>
       <div class="unfollow-button">
-        <% if current_user.following?(@user) %>
-        <%= unfollow_button(@user) %>
-        <% else %>
         <%= follow_button(@user) %>
-        <% end %>
-    </div>
+      </div>
     </h1>
-
     <% @user.rants.each do |rant| %>
       <div>
-         <div><p class="font-10pt">
+        <div><p class="font-10pt">
           |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
         </p></div>
-
       </div>
     <% end %>
   </div>

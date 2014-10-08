@@ -8,8 +8,6 @@ module DashboardHelper
     end
   end
 
-
-
   def favorite_link(rant)
     button_to "Favorite", user_favorites_path(:rant_id => rant.id, :user_id => current_user.id)
   end
