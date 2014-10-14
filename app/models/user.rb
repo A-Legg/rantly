@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
   has_many :favorites
 
 
-  validates :username, presence: true, uniqueness: {case_sensitive: false}
+  validates_uniqueness_of :username,  :message => '%{value} has already been taken'
+  validates_presence_of :username, :first_name, :last_name, :bio
+
+  validates :password, length: { minimum: 8}
 
 
   def following?(user)

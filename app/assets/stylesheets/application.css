@@ -87,6 +87,20 @@ a {
     border: grey solid 1px;
 
 }
+.signin {
+
+    width: 15%;
+
+    float: right;
+    margin-right: .5em;
+    color: white;
+    font-size: 2em;
+    padding: .5em;
+    margin-top: .75em;
+
+
+}
+
 
 .app-flex5 {
     flex: 0 0 180px;
@@ -98,12 +112,13 @@ a {
 
 .rant-submit {
 
+    flex: 0 0 180px;
     width: 15%;
     background-color: green;
-
+    float: right;
     margin-right: .5em;
     color: white;
-    font-size: 1em;
+    font-size: 2em;
     padding: .5em;
     margin-top: .75em;
     border: grey solid 1px;
@@ -295,6 +310,10 @@ input[type=submit] {
 
 .unfollow-button {
     float: right;
+}
+
+.errors {
+    color: red;
 }
 
 
