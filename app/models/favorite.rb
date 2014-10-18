@@ -1,4 +1,6 @@
 class Favorite < ActiveRecord::Base
-  has_many :users
-  has_many :rants
+  belongs_to :user
+  belongs_to :rant
+
+
 end

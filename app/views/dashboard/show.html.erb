@@ -37,6 +37,7 @@
             <div class="ranter-name"><p class="ranter-name"><%= link_to "#{user.first_name}", user_path(user.id) %>
               |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
             <%= follow_button(user) %>
+            <%= favorite_button(rant) %>
           <% end %>
         <% end %>
       </div>

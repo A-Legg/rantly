@@ -8,14 +8,15 @@ module DashboardHelper
     end
   end
 
-  def favorite_link(rant)
-    button_to "Favorite", user_favorites_path(:rant_id => rant.id, :user_id => current_user.id)
+  def favorite_button(rant)
+    if current_user.favorites.include?(rant.id)
+      button_to "Unfavorite", user_favorites_path(:rant_id => rant.id, :user_id => current_user.id), {method: :delete}
+     else
+      button_to "Favorite", user_favorites_path(:rant_id => rant.id, :user_id => current_user.id)
+    end
   end
-
-  def unfavorite_link(rant)
-    button_to "Unfavorite", user_favorites_path(:rant_id => rant.id, :user_id => current_user.id), {method: :delete}
-  end
-
 end
+
+
 
 
