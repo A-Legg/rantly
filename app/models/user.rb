@@ -4,22 +4,20 @@ class User < ActiveRecord::Base
 
   has_many :rants, :dependent => :destroy
 
-  # has_many :followed_user_relationships,
-  #          foreign_key: :follower_id,
-  #          class_name: 'FollowingRelationship'
-  #
-  # has_many :followed_users, through: :followed_user_relationships
-  #
-  # has_many :follower_relationships,
-  #          foreign_key: :followed_user_id,
-  #          class_name: 'FollowingRelationship'
-  #
-  # has_many :followers, through: :follower_relationships
-  #
-  # has_many :favorites
-;sadkjl;sakjfl;sajf;lkajsfl;ksajdfl;djs;fadjsf
-  as;ldkfjasl;djfl;asdjfl;asdjfl;sdfjka
-  as;ldkfjls;akjfl;asdkjflas;djflsa;kdjfl;ksadj
+  has_many :followed_user_relationships,
+           foreign_key: :follower_id,
+           class_name: 'FollowingRelationship'
+
+  has_many :followed_users, through: :followed_user_relationships
+
+  has_many :follower_relationships,
+           foreign_key: :followed_user_id,
+           class_name: 'FollowingRelationship'
+
+  has_many :followers, through: :follower_relationships
+
+  has_many :favorites
+
 
   validates_uniqueness_of :username, :message => '%{value} has already been taken'
   validates_presence_of :username, :first_name, :last_name, :bio
