@@ -1,10 +1,10 @@
 module DashboardHelper
 
-  def follow_button(user)
+  def follow_link(user)
     if current_user.following?(user)
-      button_to "Unfollow", user_following_relationship_path(:id => current_user.id, :user_id => user.id), {method: :delete}
+      link_to "Unfollow", user_following_relationship_path(:id => current_user.id, :user_id => user.id), {method: :delete}
     else
-      button_to "Follow", user_following_relationships_path(:user_id => user.id, :id => current_user.id)
+      link_to "Follow", user_following_relationships_path(:user_id => user.id, :id => current_user.id), {method: :post}
     end
   end
 
@@ -16,6 +16,9 @@ module DashboardHelper
       link_to "Favorite", user_favorites_path(rant_id: rant.id, user_id: current_user.id), {method: :post}
      end
   end
+
+
+
 end
 
 
