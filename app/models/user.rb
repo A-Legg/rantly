@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
 
   def favorite?(rant)
-    favorites.include?(rant.id)
+  favorites.include?(rant.id)
   end
 
 end

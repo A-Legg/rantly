@@ -1,3 +1,6 @@
-<% @user.favorites.each do |favorite | %>
-<% favorite.rant %>
+<% @favorites.each do |favorite | %>
+  <div>
+<%= favorite.rant.description %>
+ <%= favorite.rant.rant %>
+</div>
 <% end %>

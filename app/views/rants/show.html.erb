@@ -19,13 +19,15 @@
   </div>
 
 
-  <div class="flex-body">
-    <h1 class="rant-title">
-      <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %></p>
-      <%= @rant.description %>
-    </h1>
+  <div class="dash-flex2">
+    <p class="rant-title">
+
+    <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %></p>
+    <%= @rant.description %>
+    </p>
     <div>
       <%= @rant.rant %>
+      <%= favorite_link(@rant) %>
     </div>
   </div>
 </div>

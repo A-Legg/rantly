@@ -235,13 +235,14 @@ img {
     width: 30%;
     padding: 0px 00px 0px 00px;
 }
-.dash-flex2 {
+/*.dash-flex2 {*/
     /*flex: 0 0 300px;*/
-    width: 60%;
-    background-color: white;
-    padding: 0px 20px 0px 20px;
-    color: black;
-}
+    /*width: 60%;*/
+    /*background-color: white;*/
+    /*padding: 0px 20px 0px 20px;*/
+    /*color: black;*/
+    /*text-decoration: none;*/
+/*}*/
 h1.rant-label {
     font-size: 34px;
     margin: 0;

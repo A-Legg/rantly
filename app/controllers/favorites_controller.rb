@@ -1,24 +1,30 @@
 class FavoritesController < ApplicationController
 
-  def create
-    Favorite.create!(favorite_params)
+  def new
+    @favorite = Favorite.new
+  end
 
-    redirect_to dashboard_path(current_user)
+  def create
+    @favorite = Favorite.new
+    @favorite.user_id = current_user.id
+    @favorite.rant_id = params[:rant_id]
+    @favorite.save!
+    redirect_to :back
   end
 
   def destroy
-    Favorite.destroy(params[:id])
 
-    redirect_to dashboard_path(current_user)
+    @favorite = Favorite.where(rant_id: params[:rant_id], user_id: current_user.id).first
+    @favorite.destroy
+    redirect_to :back
   end
 
   def index
-    @user = current_user
-  end
 
-  private
+      @user = current_user
+      @favorites = Favorite.where(:user_id => session[:user_id])
+    end
 
-  def favorite_params
-    params.permit(:rant_id).merge({user_id: current_user.id})
-  end
+
+
 end
