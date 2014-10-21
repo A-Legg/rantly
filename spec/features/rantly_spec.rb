@@ -8,6 +8,11 @@ feature 'rants' do
     expect(page).to have_content("Rantly")
   end
 
+  scenario "user can visit dashboard path" do
+    visit dashboard_path
+    expect(page).to have_content("blah blah blah")
+  end
+
 
 
 end
