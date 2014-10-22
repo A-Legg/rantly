@@ -37,10 +37,4 @@ class User < ActiveRecord::Base
     followed_users.delete(user)
   end
 
-
-
-  def favorite?(rant)
-  favorites.include?(rant.id)
-  end
-
 end

@@ -21,7 +21,6 @@
 
   <div class="dash-flex2">
     <h1 class="text-center rant-label">Favorites</h1>
-
     <% @favorites.each do |favorite| %>
       <div>
         <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
@@ -33,6 +32,5 @@
         <%= favorite.rant.rant %>
       </div>
     <% end %>
-
   </div>
 </div>

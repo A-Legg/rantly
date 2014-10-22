@@ -13,7 +13,6 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-
     @favorite = Favorite.where(rant_id: params[:rant_id], user_id: current_user.id).first
     @favorite.destroy
     redirect_to :back
@@ -21,11 +20,8 @@ class FavoritesController < ApplicationController
 
   def index
     @rant = Rant.new
-
       @user = current_user
       @favorites = Favorite.where(:user_id => session[:user_id])
     end
-
-
 
 end
