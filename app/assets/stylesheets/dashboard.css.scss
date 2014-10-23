@@ -2,10 +2,10 @@
   height: auto;
   padding-top: .5em;
   display: inline;
-  min-height: 850px;
+  min-height: 1000px;
   float: left;
   width: 75%;
-  z-index: 0;
+
   position: relative;
   margin-left: 310px;
   background-color: #ffffff;
@@ -17,6 +17,7 @@
   float: left;
   height: auto;
   display: inline;
+  position: relative;
 }
 
 
@@ -33,10 +34,14 @@
 }
 
 .rant-textbox {
-  height: 300px;
+  height: 500px;
   width: 96%;
   color: black;
   font-size: 18px;
+}
+
+.rant-description-textbox {
+  width: 96%
 }
 
 
@@ -98,6 +103,7 @@
   margin-right: 5px;
   padding-top: .5em;
   display: float;
+  width: 100%
 }
 .favorite-link {
   float: right;

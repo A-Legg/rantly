@@ -1,8 +1,9 @@
-<article class="rant-form-container">
+<div class="rant-form-container">
   <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
-        <%= error %><br>
+        <%= error %>
+        <br>
       <% end %>
     <% end %>
   </div>
@@ -23,13 +24,15 @@
       </div>
     <% end %>
   </div>
-</article>
+</div>
 
 
-<section class="dashboard-content">
+<div class="dashboard-content">
   <h1 class="my-rants-header">Following</h1>
   <% @following_relationships.each do |follower| %>
     <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
-    <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+    <div>
+      <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+    </div>
   <% end %>
-</section>>
+</div>
