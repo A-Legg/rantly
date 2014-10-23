@@ -16,16 +16,36 @@
         <%= f.label :password %>
         <%= f.password_field :password %>
       </div>
+
       <div>
         <%= f.label :first_name %>
         <%= f.text_field :first_name %>
         <%= f.label :last_name %>
         <%= f.text_field :last_name %>
       </div>
+
       <div>
         <%= f.label :bio %>
         <%= f.text_field :bio %>
       </div>
+      <div>
+        <%= f.label :frequency, "How often do you rant?" %>
+        <br>
+
+        <div class="one_third_width display_inline_block center">
+          <%= f.radio_button :frequency, 'Daily' %>
+          <%= f.label :frequency, 'Daily' %>
+        </div>
+        <div class="one_third_width display_inline_block center">
+          <%= f.radio_button :frequency, 'Weekly' %>
+          <%= f.label :frequency, 'Weekly' %>
+        </div>
+        <div class="one_third_width display_inline_block center one_bottom_padding">
+          <%= f.radio_button :frequency, 'Monthly' %>
+          <%= f.label :frequency, 'Monthly' %>
+        </div>
+      </div>
+      <br>
       <div>
         <%= f.submit "Register", class: "rant_button button_radius" %>
       </div>
