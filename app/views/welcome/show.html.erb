@@ -3,6 +3,12 @@
 
   <h2 id="splash-slogan">Let it all out</h2>
 
+  <div class="welcome-back-flash">
+  <% if flash[:notice] %>
+    <br>
+    <%= flash[:notice] %>
+  <% end %>
+  </div>
   <section class="splash-quote">
     <img src="https://avatars2.githubusercontent.com/u/161737?v=2&s=460">
 

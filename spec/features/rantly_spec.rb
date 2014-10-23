@@ -4,15 +4,28 @@ require 'capybara/rails'
 feature 'rants' do
 
   scenario "user can visit landing page and see banner and quotes" do
-    visit root_path
-    expect(page).to have_content("Rantly")
+    user_sign_in
   end
 
   scenario "user can visit dashboard path" do
-    visit dashboard_path
-    expect(page).to have_content("blah blah blah")
+    user_sign_in
+
+    expect(page).to have_content("Latest Rants")
   end
 
 
 
+end
+
+
+
+
+def user_sign_in
+
+  visit root_path
+  click_link "login"
+  expect(page).to have_content("Rant.ly")
+  fill_in "Username", with: "username"
+  fill_in "Password", with: "password"
+  click_on "Login"
 end

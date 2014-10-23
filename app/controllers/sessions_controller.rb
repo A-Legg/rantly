@@ -5,14 +5,17 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
+
+
+
   def create
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to dashboard_path(@user.id)
     else
-      @user.errors[:base] << "Username or Password is incorrect"
-      render :new
+      flash[:notice] = "Login failed."
+      redirect_to signin_path
     end
   end
 

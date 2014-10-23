@@ -1,13 +1,10 @@
 <div class="login-flex">
-  <h1 class="login text_align_center">Login</h1>
+  <h1 class="latest-rants-header">Login</h1>
   <%= form_for @user, url: signin_path, html: {class: "signin-form"} do |f| %>
     <div class="errors">
-      <% if @user.errors.full_messages.any? %>
-        <% @user.errors.full_messages.each do |error| %>
-          <%= error %>
-          <br/>
-        <% end %>
-
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+        <br>
       <% end %>
     </div>
     <div>
