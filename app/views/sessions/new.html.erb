@@ -1,5 +1,5 @@
 <div class="login-flex">
-  <p>Login</p>
+  <h1 class="login text_align_center">Login</h1>
   <%= form_for @user, url: signin_path, html: {class: "signin-form"} do |f| %>
     <div class="errors">
       <% if @user.errors.full_messages.any? %>
@@ -19,7 +19,7 @@
       <%= f.password_field :password, :size => "110x10" %>
     </div>
     <div>
-      <%= f.submit "Login", :class => "btn btn-success", :size => "110x10" %>
+      <%= f.submit "Login", class: "rant_button button_radius" %>
     </div>
   <% end %>
 </div>

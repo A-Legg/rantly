@@ -1,0 +1,38 @@
+.splash-page {
+  text-align: center;
+  background-color: white;
+  padding-bottom: 5em;
+  padding-top: 5em;
+  margin-left: 0em;
+}
+
+.splash-quote {
+  background-color: grey;
+  margin-bottom: 0;
+
+  color: white;
+  min-height: 400px;
+}
+
+img {
+  display: inline;
+  float: left;
+  margin-right: 1em;
+  margin-top: 2em;
+
+  min-width: 200px;
+  height: 200px;
+}
+
+.text {
+  display: inline;
+  float: right;
+
+}
+
+#rantly-title {
+  font-size: 65px;
+}
+#splash-slogan {
+  font-size: 20px;
+}

@@ -1,5 +1,5 @@
 <div class="login-flex">
-  <p>Register!</p>
+  <h1 class="register text_align_center">Register!</h1>
   <%= form_for @user, url: users_path do |f| %>
     <div class="errors">
       <% if @user.errors.full_messages.any? %>
@@ -27,7 +27,7 @@
         <%= f.text_field :bio %>
       </div>
       <div>
-        <%= f.submit "Register" %>
+        <%= f.submit "Register", class: "rant_button button_radius" %>
       </div>
     </section>
   <% end %>

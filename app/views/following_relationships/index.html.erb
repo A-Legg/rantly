@@ -1,30 +1,28 @@
-<div class="dash-flex-container">
-  <div class="dash-flex1">
-    <section class="dashboard-form">
-      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(current_user.id) %>
-      <%= form_for @rant, url: rants_path do |f| %>
-        <div>
-          <p>A rant about:</p>
-          <%= f.text_field :description, :size => '70x15' %>
-        </div>
-        <div>
-          <p>Rant:</p>
-          <%= f.text_area :rant, :size => '50x30' %>
-        </div>
-
-        <div class="rant-submit">
-          <%= f.submit "RANT" %>
-        </div>
-      <% end %>
-    </section>
+<article class="rant-form-container">
+  <div class="profile-link">
+    <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
-
-
-  <div class="dash-flex2">
-    <h1 class="text-center rant-label">Following</h1>
-    <% @following_relationships.each do |follower| %>
-      <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
-      <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+  <div class="rant-form">
+    <%= form_for @rant, url: rants_path do |f| %>
+      <%= f.label :description, "A rant about:", class: "rant-description" %>
+      <br>
+      <%= f.text_field :description, class: "rant-description-textbox" %>
+      <br>
+      <%= f.label :rant, "Rant:", class: "rant-title" %>
+      <br>
+      <%= f.text_area :rant, class: "rant-textbox" %>
+      <div class="rant-submit">
+        <%= f.submit "RANT", class: "rant_button button_radius" %>
+      </div>
     <% end %>
   </div>
-</div>
+</article>
+
+
+<section class="dashboard-content">
+  <h1 class="my-rants-header">Following</h1>
+  <% @following_relationships.each do |follower| %>
+    <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
+    <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+  <% end %>
+</section>>

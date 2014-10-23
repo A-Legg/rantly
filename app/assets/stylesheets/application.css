@@ -17,245 +17,75 @@
 
 
 
-
-
-h1 {
-   font-size: 95px;
-   margin-top: .05em;
-   }
-
-h2 {
-    font-size: 25px;
-}
-
-
 body {
-
-    font-family: Optima, sans-serif;
-    margin: 0;
     background-color: grey;
+    font-family: Lucida Console, Monaco, monospace;;
+    text-align: left;
+    margin: 0 auto;
+}
+
+#content {
+    background-color: #fff;
+    /* White */
+}
+
+.wrapper {
+    margin: auto;
+    width: 100%;
+}
+
+
+
+article {
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 16px;
+    float: left;
+}
+
+
+
+/* DEMO STYLE - Box Outlines  */
+article {
+    box-sizing: border-box;
+    padding: 0 0px 0 0px;
+}
+
+section {
+    box-sizing: border-box;
+    padding: 0px 0 10px 0;
 }
 
 
 
 
 
+.button {
+    background-color: green;
+    padding: .25em 1.5em .25em 1.5em;
+    border: black 1px solid;
+    color: white;
+    text-decoration: none;
+}
 
 .header {
     background-color: black;
-    width: 100%;
-    color: white;
-    height: 4em;
-}
-a {
-    color: white;
-
-    margin-right: 1em;
-    margin-top: 1.25em;
 }
 
 
 
 
 
-
-.logo {
-
-    font-size: 2em;
-    float: left;
-    display: inline-block;
-    border-right: green 1px solid;
-    height: 2em;
-    padding: .5em;
-    color: white;
-
-
-}
-
-
-
-.join {
-    flex: 0 0 180px;
-    width: 15%;
-    background-color: green;
-    float: right;
-    margin-right: .5em;
-    color: white;
-    font-size: 2em;
-    padding: .5em;
-    margin-top: .75em;
-    border: grey solid 1px;
-
-}
-.signin {
-
-    width: 15%;
-
-    float: right;
-    margin-right: .5em;
-    color: white;
-    font-size: 2em;
-    padding: .5em;
-    margin-top: .75em;
-
-
-}
-
-
-.app-flex5 {
-    flex: 0 0 180px;
-    height: 60px;
-    width: 180px;
-    padding-top: 16px;
-    /*border: thin solid black;*/
-}
-
-.rant-submit {
-
-    flex: 0 0 180px;
-    width: 15%;
-    background-color: green;
-    float: right;
-    margin-right: .5em;
-    color: white;
-    font-size: 2em;
-    padding: .5em;
-    margin-top: .75em;
-    border: grey solid 1px;
-
-}
-
-
-
-.container {
-    background: white;
+.errors {
+    display: block;
+    color: red;
 }
 
 
 
 
 
-.splash-page {
-    text-align: center;
-    background-color: white;
-    padding-bottom: 5em;
-    padding-top: 5em;
-    margin-left: 0em;
-}
 
-
-
-.splash-quote {
-    background-color: grey;
-
-    color: white;
-    min-height: 400px;
-}
-
-img {
-    display: inline;
-    float: left;
-    margin-right: 1em;
-    margin-top: 2em;
-
-    min-width: 200px;
-    height: 200px;
-}
-
-.text {
-    display: inline;
-    float: right;
-
-}
-
-.flash {
-    display: inline-block;
-    background-color: lightgreen;
-    float: center;
-}
-
-
-
-.dashboard-form {
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: baseline;
-    background-color: grey;
-
-    width: 300px;
-    height: 1000px;
-
-}
-.header-flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /*justify-content: flex-start;*/
-    /*align-content: flex-start;*/
-    /*align-items: baseline;*/
-
-    background-color: #393B39;
-}
-
-.join {
-    flex: 0 0 180px;
-    width: 15%;
-    background-color: green;
-    float: right;
-    margin-right: .5em;
-    color: white;
-    font-size: 1em;
-    padding: .5em;
-    margin-top: .75em;
-    border: grey solid 1px;
-
-}
-
-
-
-
-.dash-flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: stretch;
-    align-items: stretch;
-}
-.links {
-    font-size: 25px;
-}
-
-
-.dash-flex1 {
-    /*flex: 0 0 300px;*/
-    width: 30%;
-    padding: 0px 00px 0px 00px;
-}
-/*.dash-flex2 {*/
-    /*flex: 0 0 300px;*/
-    /*width: 60%;*/
-    /*float: left;*/
-    /*background-color: white;*/
-    /*padding: 0px 20px 0px 20px;*/
-    /*color: black;*/
-    /*text-decoration: none;*/
-/*}*/
-h1.rant-label {
-    font-size: 34px;
-    margin: 0;
-
-}
-
-.app-flex5 {
-    flex: 0 0 180px;
-    height: 60px;
-    width: 180px;
-    padding-top: 16px;
-}
 
 .login-flex {
     font-size: 15px;
@@ -269,55 +99,11 @@ h1.rant-label {
 
 
 .login-flex > div {
-      padding: .8em 0;
-  }
-
-
-
-label {
-    display: flex;
-    width: 6em;
-}
-
-input[type=submit] {
-
-    width: 15%;
-    background-color: green;
-
-    margin-right: .5em;
-    color: white;
-    font-size: 1em;
-    padding: .5em;
-    margin-top: .75em;
-    border: grey solid 1px;
+    padding: .8em 0;
 }
 
 
-.rant-link {
-    text-decoration: none;
-    color: black;
-}
-.flex-body {
-    background-color: white;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: stretch;
-    align-items: stretch;
-    width: 60%;
-    text-align: center;
-    padding: 0px 20px 0px 20px;
 
-}
-
-.unfollow-button {
-    float: right;
-}
-
-.errors {
-    color: red;
-}
 
 
 
