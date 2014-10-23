@@ -1,4 +1,30 @@
 <article class="rant-form-container">
+  <article class="rant-form-container">
+    <div class="errors">
+      <% if @rant.errors.any? %>
+        <% @rant.errors.full_messages.each do |error| %>
+          <%= error %><br>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="profile-link">
+      <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
+    </div>
+    <div class="rant-form">
+      <%= form_for @rant, url: rants_path do |f| %>
+        <%= f.label :description, "A rant about:", class: "rant-description" %>
+        <br>
+        <%= f.text_field :description, class: "rant-description-textbox" %>
+        <br>
+        <%= f.label :rant, "Rant:", class: "rant-title" %>
+        <br>
+        <%= f.text_area :rant, class: "rant-textbox" %>
+        <div class="rant-submit">
+          <%= f.submit "RANT", class: "rant_button button_radius" %>
+        </div>
+      <% end %>
+    </div>
+  </article>
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>

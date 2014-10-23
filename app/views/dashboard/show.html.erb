@@ -1,5 +1,13 @@
 <article class="rant-form-container">
 
+  <div class="errors">
+    <% if @rant.errors.any? %>
+      <% @rant.errors.full_messages.each do |error| %>
+        <%= error %><br>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -26,16 +34,23 @@
 </article>
 
 <article class="dashboard-content">
+  <section class="rants">
 
   <h1 class="latest-rants-header">Latest Rants</h1>
   <% @users.each do |user| %>
+    <% user.rants.each do |rant| %>
+      <% if rant.user_id != session[:user_id] %>
 
-      <% user.rants.each do |rant| %>
-        <% if rant.user_id != session[:user_id] %>
-          <div class="ranter-name"><p class="ranter-name"><%= link_to "#{user.first_name}", user_path(user.id) %>
-            |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %></p></div>
-          <%= follow_link(user) %>
-          <%= favorite_link(rant) %>
+    <div class="rant-user-info">
+       <%= link_to "#{user.first_name}", user_path(user.id) %>
+      <div>
+        <%= follow_link(user) %>
+        </div>
+      </div>
+        <div class="rant-text">
+            <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+                <%= favorite_link(rant) %>
+        </div>
         <% end %>
       <% end %>
 
@@ -47,4 +62,5 @@
       <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
     </div>
   <% end %>
+    </section>
 </article>

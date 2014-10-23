@@ -81,4 +81,25 @@
   color: black;
 }
 
+.rant-user-info {
+  width: 10%;
+  display: inline-block;
+  border-right: solid grey 2px;
+}
+
+.rant-text {
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.rants {
+  border-bottom: 1px solid gray;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: .5em;
+}
+.favorite-link {
+  float: right;
+}
+
 

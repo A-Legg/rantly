@@ -1,4 +1,11 @@
 <article class="rant-form-container">
+  <div class="errors">
+    <% if @rant.errors.any? %>
+      <% @rant.errors.full_messages.each do |error| %>
+        <%= error %><br>
+      <% end %>
+    <% end %>
+  </div>
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>

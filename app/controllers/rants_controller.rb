@@ -1,5 +1,6 @@
 class RantsController < ApplicationController
 
+
   def show
     @user = current_user
     @rant = Rant.find(params[:id])
@@ -13,8 +14,9 @@ class RantsController < ApplicationController
     @rant = Rant.new(rant_params)
     @rant.user_id = current_user.id
     if @rant.save
-      redirect_to dashboard_path(@user.id)
+      redirect_to dashboard_path(current_user)
     else
+      @rant.errors
       render dashboard_path(current_user)
     end
   end
