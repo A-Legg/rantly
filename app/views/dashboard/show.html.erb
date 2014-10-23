@@ -57,7 +57,7 @@
   <% end %>
   <h1 class="my-rants-header">My Rants</h1>
   <% @user.rants.each do |rant| %>
-    <div>
+    <div class="rant-text">
       <%= rant.rant %>
       <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
     </div>

@@ -25,16 +25,19 @@
   </div>
 </article>
 
-  <div class="dash-flex2">
-    <p class="rant-title">
+<article class="dashboard-content">
+  <section class="rants">
 
-    <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %></p>
-    <%= @rant.description %>
-    </p>
+
+    <h1 class="rant-show-header"><%= @rant.description %> <p><%= favorite_link(@rant) %></p></h1>
+
     <div>
+      <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %></p>
       <%= @rant.rant %>
-      <%= favorite_link(@rant) %>
+
     </div>
   </div>
 </div>
 
+</section>
+</article>
