@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  attr_accessor :avatar_file_name
+
   has_secure_password
 
   has_attached_file :avatar, :styles => { :small => "100x100>", :thumb => "25x25>" }, :default_url => "http://images.sodahead.com/polls/000547669/polls_profiles_1202SHAvatarFred_1028_226520_xlarge_4111_489972_answer_1_xlarge.jpeg"
