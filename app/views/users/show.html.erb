@@ -33,7 +33,7 @@
         <%= follow_link(@user) %>
       </div>
     </h1>
-    <% @rants.each do |rant| %>
+    <% @user.rants.each do |rant| %>
       <div>
         <div><p class="font-10pt">
           |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %> | <%= favorite_link(rant) %>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:show]
   resources :rants
+  resources :searches, only: [:index]
 
 
 

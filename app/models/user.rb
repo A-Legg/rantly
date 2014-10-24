@@ -37,4 +37,6 @@ class User < ActiveRecord::Base
     followed_users.delete(user)
   end
 
+
+
 end

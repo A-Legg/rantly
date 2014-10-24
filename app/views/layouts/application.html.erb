@@ -22,7 +22,7 @@
           <%= link_to "Dashboard", dashboard_path(session[:user_id]), class: "dashboard-links" %>
           <%= link_to "Following", user_following_relationships_path(current_user.id), class: "dashboard-links" %>
           <%= link_to "Favorites", "/users/#{current_user.id}/favorites", class: "dashboard-links" %>
-          <%= link_to "Search", "/users/#{current_user.id}/search", class: "dashboard-links" %>
+          <%= link_to "Search", searches_path, class: "dashboard-links" %>
           <%= link_to "Logout", signout_path, class: "button button_radius logout_button" %>
         </span>
       </div>
