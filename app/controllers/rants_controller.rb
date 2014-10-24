@@ -16,7 +16,7 @@ class RantsController < ApplicationController
     if @rant.save
       redirect_to dashboard_path(current_user)
     else
-      flash[:notice] = "Title must be less than 50 characters and Rant more than 140 characters."
+      flash[:error] = "Title must be less than 50 characters and Rant more than 140 characters."
       redirect_to dashboard_path(current_user)
     end
   end
