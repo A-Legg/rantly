@@ -56,6 +56,24 @@
       <% end %>
 
 
+    <% @rants.each do |rant| %>
+
+
+
+        <div class="rant-user-info">
+          <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
+          <div>
+            <%= follow_link(rant.user) %>
+          </div>
+        </div>
+        <div class="rant-text">
+          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+
+        </div>
+      <% end %>
+
+
+
 
     </section>
   </article>
