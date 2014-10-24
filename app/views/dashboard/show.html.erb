@@ -1,5 +1,7 @@
 <article class="rant-form-container">
-
+  <div class="profile-pic">
+    <%= image_tag current_user.avatar.url(:thumb) %>
+  </div>
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -34,31 +36,34 @@
 <article class="dashboard-content">
   <section class="rants">
 
-  <h1 class="latest-rants-header">Latest Rants</h1>
-  <% @users.each do |user| %>
-    <% user.rants.each do |rant| %>
+    <h1 class="latest-rants-header">Latest Rants</h1>
+    <% @rants.each do |rant| %>
+
       <% if rant.user_id != session[:user_id] %>
 
-    <div class="rant-user-info">
-       <%= link_to "#{user.first_name}", user_path(user.id) %>
-      <div>
-        <%= follow_link(user) %>
+        <div class="rant-user-info">
+          <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
+          <div class="user-photo">
+            <%= image_tag rant.user.avatar.url(:thumb) %>
+          </div>
+          <div>
+            <%= follow_link(rant.user) %>
+          </div>
         </div>
-      </div>
         <div class="rant-text">
-            <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
-                <%= favorite_link(rant) %>
+          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+          <%= favorite_link(rant) %>
         </div>
-        <% end %>
       <% end %>
+    <% end %>
 
-  <% end %>
-  <h1 class="my-rants-header">My Rants</h1>
-  <% @user.rants.each do |rant| %>
-    <div class="rant-text">
-      <%= rant.rant %>
-      <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
-    </div>
-  <% end %>
-    </section>
+
+    <h1 class="my-rants-header">My Rants</h1>
+    <% @user.rants.each do |rant| %>
+      <div class="rant-text">
+        <%= rant.rant %>
+        <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
+      </div>
+    <% end %>
+  </section>
 </article>
