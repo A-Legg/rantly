@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessor :avatar_file_name
+  
 
   has_secure_password
 

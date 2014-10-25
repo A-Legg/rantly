@@ -50,6 +50,7 @@ gem 'rails_12factor'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem "paperclip"
+gem 'aws-sdk'
 
 
 
