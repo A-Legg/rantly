@@ -2,11 +2,12 @@
   <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
-        <%= error %><br>
+        <%= error %>
+        <br>
       <% end %>
     <% end %>
   </div>
- 
+
   <div class="profile-link">
     <%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %>
   </div>
@@ -39,8 +40,8 @@
     </div>
 
 
-    <% @users.each do |user| %>
-      <% user.rants.each do |rant| %>
+      <% @users.each do |user| %>
+        <% user.rants.each do |rant| %>
 
 
           <div class="rant-user-info">
@@ -57,8 +58,8 @@
       <% end %>
 
 
-    <% @rants.each do |rant| %>
 
+      <% @rants.each do |rant| %>
 
 
         <div class="rant-user-info">
@@ -76,5 +77,5 @@
 
 
 
-    </section>
-  </article>
+  </section>
+</article>
