@@ -34,7 +34,7 @@
       <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
     </div>
     <div>
-      <%= follow_link(favorite.user) %>
+      <%= follow_link(favorite.rant.user) %>
     </div>
     <div>
       <%= favorite.rant.description %>
