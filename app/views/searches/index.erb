@@ -29,21 +29,15 @@
 
 <article class="dashboard-content">
   <section class="rants">
-
     <h1 class="latest-rants-header">Search</h1>
-
     <div class="search-area">
       <%= form_tag searches_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search], class: 'search-field' %>
-        <%= submit_tag "search", :name => nil, class: "search-submit" %>
+        <%= submit_tag "search", class: "search-submit", placeholder: "Search Here" %>
       <% end %>
     </div>
-
-
       <% @users.each do |user| %>
         <% user.rants.each do |rant| %>
-
-
           <div class="rant-user-info">
             <%= link_to "#{user.first_name}", user_path(user.id) %>
             <div>
@@ -52,16 +46,10 @@
           </div>
           <div class="rant-text">
             <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
-
           </div>
         <% end %>
       <% end %>
-
-
-
       <% @rants.each do |rant| %>
-
-
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
           <div>
@@ -70,12 +58,7 @@
         </div>
         <div class="rant-text">
           <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
-
         </div>
       <% end %>
-
-
-
-
   </section>
 </article>
