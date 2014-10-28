@@ -8,7 +8,7 @@
   </div>
 
   <div class="profile-link">
-    <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
+    <%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user) %>
   </div>
   <div class="rant-form">
     <%= form_for @rant, url: rants_path do |f| %>

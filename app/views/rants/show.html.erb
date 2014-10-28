@@ -6,9 +6,9 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div class="profile-link">
-    <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
+    <%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %>
   </div>
   <div class="rant-form">
     <%= form_for @rant, url: rants_path do |f| %>
@@ -30,11 +30,11 @@
   <section class="rants">
 
 
-    <h1 class="rant-show-header"><%= @rant.description %> <p><%= favorite_link(@rant) %></p></h1>
+    <h1 class="rant-show-header"><%= @_rant.description %> <p><%= favorite_link(@_rant) %></p></h1>
 
     <div>
-      <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %></p>
-      <%= @rant.rant %>  Favorites: <%=  @rant.favorites.count  %>
+      <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %></p>
+      <%= @_rant.rant %>  Favorites: <%=  @_rant.favorites.count  %>
 
     </div>
   </div>

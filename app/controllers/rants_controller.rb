@@ -3,7 +3,8 @@ class RantsController < ApplicationController
 
   def show
     @user = current_user
-    @rant = Rant.find(params[:id])
+    @rant = Rant.new
+    @_rant = Rant.find(params[:id])
   end
 
   def new
