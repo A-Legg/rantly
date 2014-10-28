@@ -80,14 +80,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['rantly-gschool'],
-      :access_key_id => ENV['AKIAIDAX4O4NBMFZ4BXA'],
-      :secret_access_key => ENV['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']
-    }
-  }
+
 
 
 end
