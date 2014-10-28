@@ -1,7 +1,5 @@
-<article class="rant-form-container">
-  <div class="profile-pic">
-    <%= image_tag current_user.avatar.url(:thumb) %>
-  </div>
+<div class="rant-form-container" >
+
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -31,10 +29,10 @@
 
   </div>
 
-</article>
+</div>
 
-<article class="dashboard-content">
-  <section class="rants">
+<div class="dashboard-content">
+  <div class="rants">
 
     <h1 class="latest-rants-header">Latest Rants</h1>
     <% @rants.each do |rant| %>
@@ -43,9 +41,7 @@
 
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
-          <div class="user-photo">
-            <%= image_tag rant.user.avatar.url(:thumb) %>
-          </div>
+
           <div>
             <%= follow_link(rant.user) %>
           </div>
@@ -65,5 +61,5 @@
         <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
       </div>
     <% end %>
-  </section>
-</article>
+  </div>
+</div>

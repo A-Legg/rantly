@@ -19,19 +19,25 @@
 
 body {
     background-color: grey;
-    font-family: Lucida Console, Monaco, monospace;;
+    font-family: Comic Sans MS;
     text-align: left;
     margin: 0 auto;
 }
 
 #content {
-    background-color: #fff;
-    /* White */
+    background-color: #ffffff;
 }
 
 .wrapper {
     margin: auto;
     width: 100%;
+}
+
+.clearfix {
+    margin: auto;
+    width: 100%;
+    overflow: auto;
+    zoom: 1;
 }
 
 
@@ -45,7 +51,7 @@ article {
 
 
 
-/* DEMO STYLE - Box Outlines  */
+
 article {
     box-sizing: border-box;
     padding: 0 0px 0 0px;

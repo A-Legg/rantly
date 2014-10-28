@@ -1,11 +1,11 @@
 .dashboard-content {
   height: auto;
   padding-top: .5em;
-  display: inline;
+  display: inline-block;
   min-height: 1000px;
-  float: left;
+  float: right;
   width: 80%;
-
+  zoom: 1;
   position: relative;
   margin-left: 310px;
   background-color: #ffffff;
@@ -16,8 +16,9 @@
   width: 20%;
   float: left;
   height: auto;
-  display: inline;
+  display: inline-block;
   position: relative;
+  zoom: 1;
 }
 
 
@@ -102,7 +103,7 @@
   margin-left: 5px;
   margin-right: 5px;
   padding-top: .5em;
-  display: float;
+  display: inline-block;
   width: 100%
 }
 .favorite-link {

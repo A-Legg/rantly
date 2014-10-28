@@ -7,9 +7,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="profile-pic">
-    <%= image_tag current_user.avatar.url(:thumb) %>
-  </div>
+
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -34,9 +32,7 @@
   <h1 class="my-rants-header">Following</h1>
   <% @following_relationships.each do |follower| %>
     <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
-    <div class="user-photo">
-      <%= image_tag follower.followed_user.avatar.url(:thumb) %>
-    </div>
+
     <br>
     <div>
       <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>

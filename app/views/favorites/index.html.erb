@@ -2,13 +2,12 @@
   <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
-        <%= error %><br>
+        <%= error %>
+        <br>
       <% end %>
     <% end %>
   </div>
-  <div class="profile-pic">
-    <%= image_tag current_user.avatar.url(:thumb) %>
-  </div>
+
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -28,18 +27,27 @@
   </div>
 </article>
 
-  <section class="dashboard-content">
-    <h1 class="my-rants-header">Favorites</h1>
-    <% @favorites.each do |favorite| %>
-      <div>
-        <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
-      </div>
-      <div>
-        <%= favorite.rant.description %>
-      </div>
-      <div>
-        <%= favorite.rant.rant %>
-      </div>
-    <% end %>
+<section class="dashboard-content">
+  <h1 class="my-rants-header">Favorites</h1>
+  <% @favorites.each do |favorite| %>
+    <div>
+      <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
+    </div>
+    <div>
+      <%= follow_link(favorite.user) %>
+    </div>
+    <div>
+      <%= favorite.rant.description %>
+    </div>
+    <div>
+      <%= favorite.rant.rant %>
+    </div>
+    <div>
+
+
+    </div>
+  <% end %>
   </div>
 </section>
+
+<!--'/users/#{current_user.id}/favorites/#{favorite)-->
