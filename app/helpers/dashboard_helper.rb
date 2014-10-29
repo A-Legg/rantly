@@ -11,9 +11,9 @@ module DashboardHelper
   def favorite_link(rant)
     favorite = Favorite.where(rant_id: rant.id, user_id: current_user.id).first
     if favorite
-      link_to "Unfavorite", user_favorite_path(:rant_id => rant.id, :user_id => current_user.id), {method: :delete}
+      link_to "#{rant.favorites.count} - Unfavorite", user_favorite_path(:rant_id => rant.id, :user_id => current_user.id), {method: :delete}
      else
-      link_to "Favorite", user_favorites_path(rant_id: rant.id, user_id: current_user.id), {method: :post}
+      link_to  "#{rant.favorites.count} - Favorite", user_favorites_path(rant_id: rant.id, user_id: current_user.id), {method: :post}
      end
   end
 
