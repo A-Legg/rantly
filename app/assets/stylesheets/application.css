@@ -24,38 +24,16 @@ body {
     margin: 0 auto;
 }
 
-#content {
-    background-color: #ffffff;
-}
-
-.wrapper {
-    margin: auto;
-    width: 100%;
-}
-
-.clearfix {
-    margin: auto;
-    width: 100%;
-    overflow: auto;
-    zoom: 1;
-}
-
-
-
-article {
-    position: relative;
-    margin-left: 10px;
-    margin-bottom: 16px;
-    float: left;
-}
 
 
 
 
-article {
-    box-sizing: border-box;
-    padding: 0 0px 0 0px;
-}
+
+
+
+
+
+
 
 section {
     box-sizing: border-box;
