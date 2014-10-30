@@ -1,6 +1,5 @@
 class RantsController < ApplicationController
 
-
   def show
     @user = current_user
     @rant = Rant.new
