@@ -6,5 +6,7 @@ class DashboardController < ApplicationController
     @rant = Rant.new
     @rants = Rant.all.order("created_at DESC")
     @following_relationships = FollowingRelationship.all
+    @mentions = Rant.where('rant LIKE ?', "%@"+"#{current_user.username}"+"%")
+
   end
 end

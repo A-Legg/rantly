@@ -62,4 +62,23 @@
       </div>
     <% end %>
   </div>
+
+  <% if @mentions != nil %>
+    <h1 class="my-rants-header">Mentions</h1>
+   <% @mentions.each do |rant| %>
+      <div class="rant-user-info">
+        <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
+
+        <div>
+          <%= follow_link(rant.user) %>
+        </div>
+      </div>
+    <div class="rant-text">
+      <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+      <%= favorite_link(rant) %>
+    </div>
+
+    <% end %>
+
+  <% end %>
 </div>
