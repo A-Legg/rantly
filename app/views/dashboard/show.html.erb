@@ -63,8 +63,8 @@
     <% end %>
   </div>
 
-  <% if @mentions != nil %>
-    <h1 class="my-rants-header">Mentions</h1>
+  <% if @mentions.any? %>
+    <h1 class="my-rants-header">Mentioned</h1>
    <% @mentions.each do |rant| %>
       <div class="rant-user-info">
         <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
@@ -79,6 +79,8 @@
     </div>
 
     <% end %>
+
+    <% else %>
 
   <% end %>
 </div>
