@@ -29,7 +29,7 @@
 
 
 <div class="dashboard-content">
-  <h1 class="my-rants-header">Following</h1>
+  <h1 class="latest-rants-header">Following</h1>
   <% @following_relationships.each do |follower| %>
     <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
 

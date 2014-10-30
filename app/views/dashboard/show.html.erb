@@ -1,4 +1,4 @@
-<div class="rant-form-container" >
+<div class="rant-form-container">
 
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="dashboard-content">
-  <div class="rants">
+  <div class="latest-rants">
 
     <h1 class="latest-rants-header">Latest Rants</h1>
     <% @rants.each do |rant| %>
@@ -48,13 +48,16 @@
         </div>
         <div class="rant-text">
           <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
-          <%= favorite_link(rant) %>
+          <div class="favorite-link">
+            <%= favorite_link(rant) %>
+          </div>
         </div>
       <% end %>
     <% end %>
+  </div>
 
-
-    <h1 class="my-rants-header">My Rants</h1>
+  <div class="my-rants">
+    <h1 class="latest-rants-header">My Rants</h1>
     <% @user.rants.each do |rant| %>
       <div class="rant-text">
         <%= rant.rant %>
@@ -63,24 +66,25 @@
     <% end %>
   </div>
 
-  <% if @mentions.any? %>
-    <h1 class="my-rants-header">Mentioned</h1>
-   <% @mentions.each do |rant| %>
-      <div class="rant-user-info">
-        <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
+  <div class="mentioned">
+    <% if @mentions.any? %>
+      <h1 class="latest-rants-header">Mentioned</h1>
+      <% @mentions.each do |rant| %>
+        <div class="rant-user-info">
+          <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
 
-        <div>
-          <%= follow_link(rant.user) %>
+          <div>
+            <%= follow_link(rant.user) %>
+          </div>
         </div>
-      </div>
-    <div class="rant-text">
-      <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
-      <%= favorite_link(rant) %>
-    </div>
-
-    <% end %>
-
+        <div class="rant-text">
+          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+          <div class="favorite-link">
+            <%= favorite_link(rant) %>
+          </div>
+        </div>
+      <% end %>
     <% else %>
-
-  <% end %>
-</div>
+      </div>
+    <% end %>
+    </div>

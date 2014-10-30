@@ -28,25 +28,26 @@
 </article>
 
 <section class="dashboard-content">
-  <h1 class="my-rants-header">Favorites</h1>
+  <h1 class="latest-rants-header">Favorites</h1>
   <% @favorites.each do |favorite| %>
-    <div>
+    <div class="rant-user-info">
       <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
+
+      <div>
+        <%= follow_link(favorite.rant.user) %>
+      </div>
     </div>
-    <div>
-      <%= follow_link(favorite.rant.user) %>
-    </div>
-    <div>
+    <div class="rant-text">
       <%= favorite.rant.description %>
-    </div>
-    <div>
-      <%= favorite.rant.rant %>
-    </div>
-    <div>
-      <%= link_to "#{favorite.rant.favorites.count} - Unfavorite", user_favorite_path(:rant_id => favorite.rant.id, :user_id => current_user.id, :id => favorite), {method: :delete} %>
+
+      <div>
+        <%= favorite.rant.rant %>
+      </div>
+      <div class="favorite-link">
+        <%= link_to "#{favorite.rant.favorites.count} - Unfavorite", user_favorite_path(:rant_id => favorite.rant.id, :user_id => current_user.id, :id => favorite), {method: :delete} %>
+      </div>
     </div>
   <% end %>
   </div>
 </section>
 
-<!--'/users/#{current_user.id}/favorites/#{favorite)-->

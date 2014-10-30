@@ -75,29 +75,57 @@
   margin-left: -25px;
 }
 
-.my-rants-header {
-  font-size: 40px;
-  text-align: center;
-  margin-left: -3%;
-}
+
+
 
 .rant-description {
   color: black;
 }
 
 .rant-user-info {
-  width: 10%;
+  width: 8%;
   display: inline-block;
-  border-right: solid grey 2px;
+
+  border-right: .25 px;
+  text-align: center;
+
+  float: left;
+  height: 100%;
+  display: inline-block;
+  position: relative;
 }
 
 .rant-text {
   display: inline-block;
   padding-bottom: 15px;
+  width: 90%;
+  float: left;
+  position: relative;
+  height: 100%;
+  border-left: .25px;
 }
 
 .rants {
-  border-bottom: 1px solid gray;
+
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: .5em;
+  display: inline-block;
+  width: 100%
+}
+
+.latest-rants {
+
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: .5em;
+  display: inline-block;
+  width: 100%
+
+}
+
+.mentioned {
+
   margin-left: 5px;
   margin-right: 5px;
   padding-top: .5em;
