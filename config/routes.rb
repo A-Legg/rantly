@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
 
   resources :dashboard, only: [:show]
-  resources :rants
+  resources :rants do
+    resources :comments, only: [:create]
+  end
   resources :searches, only: [:index]
 
 

@@ -4,6 +4,8 @@ class RantsController < ApplicationController
     @user = current_user
     @rant = Rant.new
     @_rant = Rant.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.where(:commentable_id => @_rant.id)
   end
 
   def new

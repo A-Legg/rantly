@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   # validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
 
+  mount_uploader :image, ImageUploader
+
   has_many :rants, :dependent => :destroy
 
   has_many :followed_user_relationships,
@@ -23,6 +25,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :follower_relationships
 
   has_many :favorites
+
+
 
 
   validates_uniqueness_of :username, :message => '%{value} has already been taken'

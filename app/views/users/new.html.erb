@@ -1,6 +1,6 @@
 <div class="login-flex">
   <h1 class="register text_align_center">Register!</h1>
-  <%= form_for @user, url: users_path do |f| %>
+  <%= form_for @user, :html => {:multipart => true},  url: users_path do |f| %>
     <div class="errors">
       <% if @user.errors.full_messages.any? %>
         <% @user.errors.full_messages.each do |error| %>
@@ -43,6 +43,9 @@
         <div>
           <%= f.radio_button :frequency, 'Monthly' %>
           <%= f.label :frequency, 'Monthly' %>
+        </div>
+        <div>
+          <%= f.file_field :image %>
         </div>
 
       </div>

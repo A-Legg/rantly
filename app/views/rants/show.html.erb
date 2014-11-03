@@ -2,7 +2,8 @@
   <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
-        <%= error %><br>
+        <%= error %>
+        <br>
       <% end %>
     <% end %>
   </div>
@@ -32,13 +33,41 @@
 
     <h1 class="rant-show-header"><%= @_rant.description %> <p><%= favorite_link(@_rant) %></p></h1>
 
-    <div>
+    <div class="rant-show">
       <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %></p>
+
+
       <%= @_rant.rant %>
-
     </div>
-  </div>
-</div>
 
-</section>
+
+  </section>
+
+  <article class="comments">
+    <div class="comments-display">
+      <% if @comments != nil %>
+        <% @comments.each do |comment| %>
+          <div class="rant-comment">
+            <%= comment.body %>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <div class="comment-form">
+      <%= form_for @comment, url: rant_comments_path(@_rant) do |f| %>
+        <br>
+        <%= f.label :comment %>
+        <br>
+        <%= f.text_field :body, class: "comment-field" %>
+        <br>
+        <br>
+        <%= f.submit "Create Comment", class: "button button_radius logout_button" %>
+      <% end %>
+    </div>
+  </article>
+
+
 </article>
