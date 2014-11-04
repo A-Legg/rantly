@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="rant-text">
-            <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+            <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
           </div>
         <div>
 
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="rant-text">
-          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+          <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
         </div>
       <div>
 

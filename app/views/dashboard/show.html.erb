@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="rant-text">
-          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+          <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
           <div class="favorite-link">
             <%= favorite_link(rant) %>
           </div>
@@ -64,7 +64,7 @@
     <h1 class="latest-rants-header">My Rants</h1>
     <% @user.rants.each do |rant| %>
       <div class="rant-text">
-        <%= rant.rant %>
+        <%= truncate(rant.rant, length: 300) %>
         <%= link_to "Delete", "/rants/#{rant.id}", :method => :delete %>
       </div>
     <% end %>
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="rant-text">
-          <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %>
+          <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
           <div class="favorite-link">
             <%= favorite_link(rant) %>
           </div>

@@ -37,7 +37,7 @@
     <% @user.rants.each do |rant| %>
       <div>
         <div><p class="font-10pt">
-          |  <%= link_to rant.rant, rant_path(rant.id), class: 'rant-link' %> | <%= favorite_link(rant) %>
+          |  <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %> | <%= favorite_link(rant) %>
 
         </p></div>
       </div>
