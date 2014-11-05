@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   end
   resources :searches, only: [:index]
 
+  namespace :admin do
+    resources :dashboard, only: [:show]
+    resources :rants, only: [:index]
+    resources :users, only: [:index]
+  end
+
 
 
 
