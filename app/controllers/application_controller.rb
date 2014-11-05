@@ -11,4 +11,13 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :current_user
+
+  def admin
+    if @user && @user.admin
+      true
+    else
+      false
+    end
+  end
+  helper_method :admin
 end

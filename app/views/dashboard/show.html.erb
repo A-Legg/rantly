@@ -32,6 +32,7 @@
   <div class="latest-rants">
 
     <h1 class="latest-rants-header">Latest Rants</h1>
+
     <% @rants.each do |rant| %>
 
       <% if rant.user_id != session[:user_id] %>
@@ -47,11 +48,17 @@
         <div class="rant-text">
           <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
           <div class="favorite-link">
+            <% if admin %>
+              <%= link_to 'blah blah', dashboard_path %>
+              <% end %>
             <%= favorite_link(rant) %>
+
           </div>
         </div>
       <% end %>
     <% end %>
+
+
   </div>
 
   <div class="my-rants">

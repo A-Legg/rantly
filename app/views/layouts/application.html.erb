@@ -8,6 +8,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if admin %>
+  <header class="header">
+    <section class="clearfix">
+      <div class="wrapper">
+        <span class="links">
+          <%= link_to "Rant.ly", dashboard_path(current_user), class: "logo" %>
+          <%= link_to "Dashboard", dashboard_path(session[:user_id]), class: "dashboard-links" %>
+          <%= link_to "Rants", user_following_relationships_path(current_user.id), class: "dashboard-links" %>
+          <%= link_to "Users", "/users/#{current_user.id}/favorites", class: "dashboard-links" %>
+          <%= link_to "Logout", signout_path, class: "button  logout_button" %>
+        </span>
+      </div>
+    </section>
+  </header>
+  <% else %>
 <% if current_user %>
   <header class="header">
     <section class="clearfix">
@@ -23,7 +38,7 @@
       </div>
     </section>
   </header>
-<% else %>
+<% elsif %>
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
@@ -37,7 +52,7 @@
   </header>
 
 <% end %>
-
+<% end %>
     <%= yield %>
 
 </body>
