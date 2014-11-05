@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new
     @favorite.user_id = current_user.id
     @favorite.rant_id = params[:rant_id]
-    @favorite.save!
+    @favorite.save
     redirect_to :back
   end
 

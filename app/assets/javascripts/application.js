@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+
+//  $('.dashboard-content').on('click', '.follow-link', function () {
+//    $('.dashboard-content').css("background-color","blue");
+//
+//
+//
+//    $(this).removeClass(".follow-link")
+//    $(this).addClass(".unfollow-link")
+////    $(this).parents('.dashboard-content').css('background-color, "blue"');
+//    debugger;
+//
+//  });
+
+
+});

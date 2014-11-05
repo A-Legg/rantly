@@ -3,17 +3,12 @@
 <head>
   <title>Rantly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
 <% if current_user %>
-
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
@@ -23,20 +18,18 @@
           <%= link_to "Following", user_following_relationships_path(current_user.id), class: "dashboard-links" %>
           <%= link_to "Favorites", "/users/#{current_user.id}/favorites", class: "dashboard-links" %>
           <%= link_to "Search", searches_path, class: "dashboard-links" %>
-          <%= link_to "Logout", signout_path, class: "button button_radius logout_button" %>
+          <%= link_to "Logout", signout_path, class: "button  logout_button" %>
         </span>
       </div>
     </section>
   </header>
-
 <% else %>
-
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
         <span class="links">
           <%= link_to "Rant.ly", root_path, class: "logo" %>
-          <%= link_to "Join", new_user_path, method: 'get', class: "button button_radius logout_button" %>
+          <%= link_to "Join", new_user_path, method: 'get', class: "button logout_button" %>
           <%= link_to "login", signin_path, class: "join-link" %>
       </span>
       </div>
