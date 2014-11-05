@@ -1,8 +1,11 @@
+
+
 <article class="rant-form-container">
-<div class="errors">
+  <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
-        <%= error %><br>
+        <%= error %>
+        <br>
       <% end %>
     <% end %>
   </div>
@@ -37,11 +40,39 @@
     <% @user.rants.each do |rant| %>
       <div>
         <div><p class="font-10pt">
-          |  <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %> | <%= favorite_link(rant) %>
+          |  <%= link_to truncate(rant.rant, length: 300), rant_path(rant.id), class: 'rant-link' %>
+          | <%= favorite_link(rant) %>
 
         </p></div>
       </div>
     <% end %>
-  </div>
- </section>
+    </div>
+
+  </section>
+
+
+  <article class="comments">
+    <div class="comments-display">
+      <% if @comments != nil %>
+        <% @comments.each do |comment| %>
+          <div class="rant-comment">
+            <%= comment.body %>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+    <div class="comment-form">
+      <%= form_for @comment, url: user_comments_path(@user) do |f| %>
+        <br>
+        <%= f.label :comment %>
+        <br>
+        <%= f.text_field :body, class: "comment-field" %>
+        <br>
+        <br>
+        <%= f.submit "Create Comment", class: "button logout_button" %>
+      <% end %>
+    </div>
+  </article>
+
 </article>

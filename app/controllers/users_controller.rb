@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
-
     @rant = Rant.new
+    @comment = Comment.new
+    @comments = Comment.where(:commentable_id => @user.id)
   end
 
   def edit

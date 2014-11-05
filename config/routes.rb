@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
     post 'follow' => 'following_relationships#create'
     resources :favorites
+    resources :comments, only: [:create]
 
 
   end
