@@ -9,9 +9,9 @@
 </head>
 <body>
 <% if admin %>
-  <header class="header">
-    <section class="clearfix">
-      <div class="wrapper">
+<header class="header">
+  <section class="clearfix">
+    <div class="wrapper">
         <span class="links">
           <%= link_to "Rant.ly", admin_dashboard_path(@user), class: "logo" %>
           <%= link_to "Dashboard", admin_dashboard_path(@user), class: "dashboard-links" %>
@@ -19,11 +19,11 @@
           <%= link_to "Users", admin_users_path, class: "dashboard-links" %>
           <%= link_to "Logout", signout_path, class: "button  logout_button" %>
         </span>
-      </div>
-    </section>
-  </header>
-  <% else %>
-<% if current_user %>
+    </div>
+  </section>
+</header>
+
+<% elsif current_user %>
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
@@ -52,7 +52,7 @@
   </header>
 
 <% end %>
-<% end %>
+
     <%= yield %>
 
 </body>

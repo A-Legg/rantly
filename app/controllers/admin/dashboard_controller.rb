@@ -3,7 +3,7 @@ class Admin::DashboardController < AdminController
 
   def show
     @user = User.find(params[:id])
-    @rants = Rant.all
+
   end
 
 

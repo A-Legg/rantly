@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    if @user && @user.admin
-      redirect_to admin_dashboard_path(@user)
-    elsif
 
+
+    if @user && @user.admin
+      session[:user_id] = @user.id
+      redirect_to admin_rants_path
+    elsif
      @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-
-
       redirect_to dashboard_path(@user.id)
     elsif
       flash[:notice] = "Login failed."
