@@ -1,1 +1,25 @@
-<%= params %>
+<div class="admin">
+  <h1 class="latest-rants-header">Rants</h1>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th>Title</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @rants.each do |rant| %>
+    <tr>
+      <td><%= "#{rant.user.first_name} "  "#{rant.user.last_name}"  %></td>
+      <td>email</td>
+      <td><%= rant.description %></td>
+      <td><%= link_to "View", rant_path(rant) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
