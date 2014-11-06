@@ -34,7 +34,7 @@
     <h1 class="rant-show-header"><%= @_rant.description %> <p><%= favorite_link(@_rant) %></p></h1>
 
     <div class="rant-show">
-      <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %> <%= spam_link(@_rant) %> </p>
+      <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %> <%= spam_link(@_rant) %> <a href="https://twitter.com/share?text=<%= @_rant.description.gsub(/\s/,'%20') %>">Tweet</a></p>
 
 
       <%= @_rant.rant %>
