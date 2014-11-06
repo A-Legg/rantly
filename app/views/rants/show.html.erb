@@ -34,7 +34,7 @@
     <h1 class="rant-show-header"><%= @_rant.description %> <p><%= favorite_link(@_rant) %></p></h1>
 
     <div class="rant-show">
-      <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %></p>
+      <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %> <%= spam_link(@_rant) %> </p>
 
 
       <%= @_rant.rant %>

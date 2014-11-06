@@ -23,12 +23,15 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :searches, only: [:index]
+  resources :spams, only: [:create, :destroy]
 
   namespace :admin do
     resources :dashboard, only: [:show]
     resources :rants, only: [:index]
     resources :users, only: [:index]
   end
+
+
 
 
 
