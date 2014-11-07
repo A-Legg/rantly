@@ -4,9 +4,7 @@
     <%= image_tag current_user.image_url.to_s %>
   </div>
 
-  <div class="profile-link">
-    <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
-  </div>
+  
   <div class="rant-form">
     <div class="errors">
       <% if flash[:error] %>
