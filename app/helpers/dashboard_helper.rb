@@ -26,6 +26,15 @@ module DashboardHelper
     end
   end
 
+  def disable_link(user)
+    if user.disabled = true
+      link_to "Enable", disabled_path(user_id: user.id), {method: :update}
+    else
+      link_to "Disable", disabled_path(user_id: user.id), {method: :update}
+    end
+
+  end
+
 
 end
 

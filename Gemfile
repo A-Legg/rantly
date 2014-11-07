@@ -52,6 +52,7 @@ gem 'pry-rails'
 gem "rmagick"
 gem "carrierwave"
 gem 'aws-sdk'
+gem 'bootstrap-datepicker-rails'
 
 
 

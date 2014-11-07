@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      cookies.delete :login
+      UserMailer.welcome_email(@user).deliver
       flash[:notice] = 'You have registered successfully!'
       session[:user_id] = @user.id
       redirect_to dashboard_path(@user)
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency, :image)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency, :image, :email)
   end
 
 end

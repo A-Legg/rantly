@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   end
   resources :searches, only: [:index]
   resources :spams, only: [:create, :destroy]
+  resources :disabled, only: [:update]
+
 
   namespace :admin do
     resources :dashboard, only: [:show]

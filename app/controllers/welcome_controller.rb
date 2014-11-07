@@ -2,13 +2,16 @@ class WelcomeController < ApplicationController
 
   def show
 
-    if cookies[:login]
+    if flash.empty? && session.delete(:visited)
       flash.now[:notice] = "Welcome back! Please consider registering to begin your ranting!"
-      render :show
+     
     else
-      render :show
+      session[:visited] = true
+
     end
   end
 end
+
+
 
 

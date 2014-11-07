@@ -5,4 +5,6 @@ class Admin::RantsController < AdminController
     @user = current_user
     @rants = Rant.all.order("created_at DESC")
   end
+
+
 end
