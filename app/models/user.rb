@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 
-  
 
   has_secure_password
 
@@ -31,8 +30,6 @@ class User < ActiveRecord::Base
   has_many :spams
 
 
-
-
   validates_uniqueness_of :username, :message => '%{value} has already been taken'
   validates_presence_of :username, :first_name, :last_name, :bio, :email
 
@@ -51,10 +48,9 @@ class User < ActiveRecord::Base
     followed_users.delete(user)
   end
 
-
-
-
-
+  def generate_confirmation_token
+    self.confirmation_token = Digest::SHA1.hexdigest([Time.now, rand].join)
+  end
 
 
 end

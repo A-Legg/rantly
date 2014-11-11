@@ -10,11 +10,11 @@ class UserMailer < ActionMailer::Base
   end
 
 
-  # def confirmation_email(user, url)
-  #   @user = user
-  #   @confirmation_url = url
-  #   mail(to: @user.email, subject: "Confirming your email")
-  # end
+  def confirmation_email(user, url)
+    @user = user
+    @confirmation_url = url
+    mail(to: @user.email, subject: "Confirming your email")
+  end
 
   def followed_email(users, rant)
     @users = users

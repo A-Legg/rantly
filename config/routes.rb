@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "signout" => "sessions#destroy", as: :signout
 
+  match '/confirm/:confirmation_token', :to => 'users#activate', via: [:post]
+
   resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
     post 'follow' => 'following_relationships#create'
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:show]
     resources :rants, only: [:index]
     resources :users, only: [:index]
+    resources :spams, only: [:index]
   end
 
 

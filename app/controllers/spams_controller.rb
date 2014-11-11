@@ -5,11 +5,9 @@ class SpamsController < ApplicationController
   end
 
   def create
-
     @spam = Spam.new
     @spam.user_id = current_user.id
     @spam.rant_id = params[:rant_id]
-
     @spam.save
     redirect_to :back
   end
@@ -19,6 +17,4 @@ class SpamsController < ApplicationController
     @spam.destroy
     redirect_to :back
   end
-
-
 end
