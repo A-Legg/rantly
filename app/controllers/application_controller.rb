@@ -21,4 +21,12 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :admin
+
+  def confirmed
+    if @user && @user.confirmed
+      true
+    else
+      false
+    end
+  end
 end

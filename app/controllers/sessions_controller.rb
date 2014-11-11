@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to admin_rants_path
     elsif
-     @user && @user.authenticate(params[:user][:password])
+     @user && @user.authenticate(params[:user][:password]) && @user.confirmed
       session[:user_id] = @user.id
       redirect_to dashboard_path(@user.id)
     elsif

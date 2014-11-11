@@ -16,6 +16,12 @@ class RantsController < ApplicationController
     @rant = Rant.new(rant_params)
     @rant.user_id = current_user.id
     if @rant.save
+      flash[:notice] = "Rant Successful!"
+      if @user.followers != nil
+        @user.followers.each do |follower|
+          UserMailer.followed_email(follower.email, @rant).deliver
+        end
+      end
       redirect_to dashboard_path(current_user)
     else
       flash[:error] = "Title must be less than 50 characters and Rant more than 140 characters."
