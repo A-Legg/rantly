@@ -53,6 +53,13 @@
 
 <% end %>
 
+<div class="flash">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <br>
+  <% end %>
+</div>
+
     <%= yield %>
 
 </body>
