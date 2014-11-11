@@ -1,4 +1,5 @@
 class Admin::SpamsController < AdminController
+  before_filter :admin
 
   def index
     @spams = Spam.all

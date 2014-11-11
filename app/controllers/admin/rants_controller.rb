@@ -3,6 +3,9 @@ class Admin::RantsController < AdminController
 
   def index
     @user = current_user
+    if params[:spam]
+      @rants = Rant.all.where(:spam => true)
+    end
     @rants = Rant.all.order("created_at DESC")
   end
 
