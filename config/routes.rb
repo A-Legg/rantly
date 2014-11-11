@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get "signout" => "sessions#destroy", as: :signout
 
+  get "/disable/:id" => "admin#disable", as: :disable
+  get "/enable/:id" => "admin#enable", as: :enable
+
   match '/confirm/:confirmation_token', :to => 'users#activate', via: [:post]
 
   resources :users, only: [:new, :create, :show, :edit, :update] do
@@ -32,7 +35,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:show]
     resources :rants, only: [:index, :destroy]
-    resources :users, only: [:index, :sort_number_of_rants]
+    resources :users, only: [:index]
+
     resources :spams, only: [:index, :destroy]
   end
 

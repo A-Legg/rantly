@@ -14,15 +14,21 @@
     <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= "#{user.first_name} "  "#{user.last_name}"  %></td>
+        <td><%= "#{user.first_name} " "#{user.last_name}" %></td>
         <td><%= user.email %></td>
         <td><%= user.rants.count %></td>
         <% if user.disabled? %>
-        <td>√</td>
+          <td>√</td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td>
+          <% if user.disabled? %>
+            <%= link_to "Enable", enable_path(user) %>
           <% else %>
-        <td></td>
+            <%= link_to 'Dsiable', disable_path(user) %>
           <% end %>
-        <td><%= link_to 'Dsiable', admin_users_path %> <%= link_to "Impersonate", admin_users_path %> </td>
+          <%= link_to "Impersonate", admin_users_path %> </td>
       </tr>
     <% end %>
     </tbody>

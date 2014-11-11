@@ -10,12 +10,14 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password]) && @user.admin
       session[:user_id] = @user.id
       redirect_to admin_rants_path
-    elsif
-     @user && @user.authenticate(params[:user][:password]) && @user.confirmed
+    elsif @user && @user.authenticate(params[:user][:password]) && @user.confirmed && @user.disabled? == false
       session[:user_id] = @user.id
       redirect_to dashboard_path(@user.id)
-    elsif
-      flash[:notice] = "Login failed."
+    elsif if @user.disabled?
+            flash[:notice] = "Your account has been disabled."
+          else
+            flash[:notice] = "Login failed."
+          end
       redirect_to signin_path
     end
   end
