@@ -16,12 +16,12 @@
     </tr>
     </thead>
     <tbody>
-    <% @rants.each do |rant| %>
+    <% @spams.each do |spam| %>
       <tr>
-        <td><%= "#{rant.user.first_name} "  "#{rant.user.last_name}"  %></td>
-        <td>email</td>
-        <td><%= rant.description %></td>
-        <td><%= link_to "View", rant_path(rant) %></td>
+        <td><%= "#{spam.rant.user.first_name} "  "#{spam.rant.user.last_name}"  %></td>
+        <td><%= spam.rant.user.email %></td>
+        <td><%= spam.rant.description %></td>
+        <td><%= link_to "Not Spam", admin_spam_path(spam.rant), {method: :delete} %> <%= link_to "Delete", admin_rant_path(spam.rant), {method: :delete} %></td>
       </tr>
     <% end %>
     </tbody>

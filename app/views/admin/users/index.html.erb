@@ -5,9 +5,9 @@
     <tr>
       <th>Name</th>
       <th>E-mail</th>
-      <%= link_to 'Sort by number of rant', admin_users_path %>
+      <%= link_to 'Sort by number of rant', sort: true %>
       <th>Number of Rants</th>
-      <th>></th>
+      <th>Disabled</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -15,10 +15,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= "#{user.first_name} "  "#{user.last_name}"  %></td>
-        <td>email</td>
+        <td><%= user.email %></td>
         <td><%= user.rants.count %></td>
+        <% if user.disabled? %>
+        <td>√</td>
+          <% else %>
         <td></td>
-        <td></td>
+          <% end %>
+        <td><%= link_to 'Dsiable', admin_users_path %> <%= link_to "Impersonate", admin_users_path %> </td>
       </tr>
     <% end %>
     </tbody>

@@ -3,18 +3,16 @@ class Admin::UsersController < AdminController
 
   def index
     @user = current_user
-    @users = User.all
+    if params[:sort]
+      @users  = User.all.sort_by { |user| user.rants.count }.reverse
+    else
+      @users = User.all
+    end
   end
 
   def update
     @user = User.find_by(params[:user_id])
-
-
   end
-
-
-
-
 
 
 end

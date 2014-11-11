@@ -11,8 +11,6 @@ class Rant < ActiveRecord::Base
 
 
 
-  def sort_by_number_of_rants
-    Rant.all.order('favorites.count DESC')
-  end
+
 
 end

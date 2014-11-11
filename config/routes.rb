@@ -31,9 +31,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:show]
-    resources :rants, only: [:index]
-    resources :users, only: [:index]
-    resources :spams, only: [:index]
+    resources :rants, only: [:index, :destroy]
+    resources :users, only: [:index, :sort_number_of_rants]
+    resources :spams, only: [:index, :destroy]
   end
 
 
