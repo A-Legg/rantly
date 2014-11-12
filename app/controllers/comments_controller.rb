@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
 
-
   def rant_comment
       @_rant = Rant.find(params[:rant_id])
       @comment = @_rant.comments.create(comment_params.merge(:user_id => current_user.id))

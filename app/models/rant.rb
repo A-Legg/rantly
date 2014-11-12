@@ -10,7 +10,12 @@ class Rant < ActiveRecord::Base
     validates_length_of :description, maximum: 50
 
 
+  def rendered_rant
+    tag_search(rant)
+  end
 
-
+  def tag_search(text)
+    text.gsub(/\#(\w+)/, '<a href="/searches?utf8=✓&search=\1&commit=search>#\1</a>' )
+  end
 
 end

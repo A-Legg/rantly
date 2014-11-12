@@ -37,7 +37,7 @@
       <p><%= link_to "#{@_rant.user.first_name} #{@_rant.user.last_name}", user_path(@_rant.user.id) %> <%= spam_link(@_rant) %> <a href="https://twitter.com/share?text=<%= @_rant.description.gsub(/\s/,'%20') %>">Tweet</a></p>
 
 
-      <%= @_rant.rant %>
+      <%= @_rant.rendered_rant %>
     </div>
 
 
