@@ -14,16 +14,19 @@ Rails.application.routes.draw do
   get "/admin/impersonate/:user_id" => "admin#impersonate", as: :impersonate
   get "/admin/unimpersonate" => "admin#unimpersonate", as: :unimpersonate
 
+  post "/users/:user_id/comments" => "comments#user_comment", as: :user_comments
+  post "rants/:rant_id/comments" => "comments#rant_comment", as: :rant_comments
+
   resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
     post 'follow' => 'following_relationships#create'
     resources :favorites
-    resources :comments, only: [:create]
+
   end
 
   resources :dashboard, only: [:show]
   resources :rants do
-    resources :comments, only: [:create]
+
   end
   resources :searches, only: [:index]
   resources :spams, only: [:create, :destroy]

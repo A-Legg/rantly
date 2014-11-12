@@ -3,7 +3,7 @@ class Admin::RantsController < AdminController
 
   def index
     @rants = Rant.where(created_at: params[:start_date]..params[:end_date])
-    
+
   end
 
   def destroy
