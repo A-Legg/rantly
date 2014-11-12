@@ -32,7 +32,7 @@
         <td><%= "#{rant.user.first_name} "  "#{rant.user.last_name}"  %></td>
         <td>email</td>
         <td><%= rant.description %></td>
-        <td><%= link_to "View", rant_path(rant) %></td>
+        <td><%= link_to "View", admin_rant_path(rant) %></td>
       </tr>
     <% end %>
     </tbody>

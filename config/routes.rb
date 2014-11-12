@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:show]
-    resources :rants, only: [:index, :destroy]
+    resources :rants, only: [:index, :destroy, :show]
     resources :users, only: [:index]
     resources :spams, only: [:index, :destroy]
   end
