@@ -2,7 +2,7 @@ class Admin::UsersController < AdminController
   before_filter :admin
 
   def index
-    @user = current_user
+
     if params[:sort]
       @users  = User.all.sort_by { |user| user.rants.count }.reverse
     else

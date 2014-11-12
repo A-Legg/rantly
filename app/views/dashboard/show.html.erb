@@ -34,7 +34,7 @@
 
     <% @rants.each do |rant| %>
 
-      <% if rant.user_id != session[:user_id] %>
+      <% if rant.user_id != current_user.id %>
 
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
