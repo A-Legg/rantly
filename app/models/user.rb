@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     followed_users.delete(user)
   end
 
-  def generate_confirmation_token
+  def confirmation_token
     self.confirmation_token = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
 

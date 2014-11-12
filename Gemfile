@@ -54,7 +54,7 @@ gem "carrierwave"
 gem 'aws-sdk'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'
-gem "keen"
+
 
 
 

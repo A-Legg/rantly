@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/disable/:id" => "admin#disable", as: :disable
   get "/enable/:id" => "admin#enable", as: :enable
 
-  match '/confirm/:confirmation_token', :to => 'users#activate', via: [:post]
+  get '/confirm/:confirmation_token', :to => 'users#activate', via: [:post], as: 'confirmation'
 
   resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
@@ -24,12 +24,15 @@ Rails.application.routes.draw do
 
 
   resources :dashboard, only: [:show]
+
+
   resources :rants do
     resources :comments, only: [:create]
+
   end
   resources :searches, only: [:index]
   resources :spams, only: [:create, :destroy]
-  resources :disabled, only: [:update]
+
 
 
   namespace :admin do

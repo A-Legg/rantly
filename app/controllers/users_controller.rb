@@ -6,10 +6,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.generate_confirmation_token
+    confirmation_token = @user.confirmation_token
     if @user.save
       UserMailer.welcome_email(@user).deliver
-      UserMailer.confirmation_email(@user, 'confirm+"/#{@user.confirmation_token}"').deliver
+      UserMailer.confirmation_email(@user, confirmation_url(confirmation_token)).deliver
       flash[:notice] = 'You have registered successfully!'
 
       flash[:notice] = "Please verify email to login"
@@ -39,11 +39,9 @@ class UsersController < ApplicationController
   def activate
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     @user.update_attribute('confirmed', true)
-    flash[:success] = "Account has been Verified."
+
+    flash[:notice] = "Account has been Verified."
     redirect_to signin_path
-  else
-    flash[:notice] = "Account could not be verified"
-    redirect_to :back
 
   end
 
