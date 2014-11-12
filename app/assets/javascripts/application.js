@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-datepicker
 //= require_tree .
 
 $(document).ready(function () {
@@ -33,6 +34,12 @@ $(document).ready(function () {
   setTimeout(function(){
     $(".flash").fadeOut('slow');
   }, 1000)
+
+  $('#start_date').datepicker({format: "yyyy-mm-dd", orientation: 'top auto'});
+
+  $('#end_date').datepicker({format: "yyyy-mm-dd", orientation: 'top auto'});
+
+
 
 
 

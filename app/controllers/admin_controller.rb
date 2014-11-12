@@ -1,9 +1,6 @@
 class AdminController < ApplicationController
   before_filter :admin
 
-
-
-
   def disable
     @user = User.find(params[:id])
     @user.update_attribute(:disabled, true)
@@ -25,7 +22,5 @@ class AdminController < ApplicationController
     session.delete(:user_id)
     redirect_to admin_rants_path
   end
-
-
 
 end

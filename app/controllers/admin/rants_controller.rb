@@ -2,8 +2,8 @@ class Admin::RantsController < AdminController
   before_filter :admin
 
   def index
-
-    @rants = Rant.all.order("created_at DESC")
+    @rants = Rant.where(created_at: params[:start_date]..params[:end_date])
+    
   end
 
   def destroy
@@ -11,6 +11,10 @@ class Admin::RantsController < AdminController
     @rant.destroy
     redirect_to admin_rants_path
   end
+
+  private
+
+
 
 
 end

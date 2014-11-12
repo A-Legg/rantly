@@ -3,6 +3,13 @@
   <div class="admin-links">
     <%= link_to "All", admin_rants_path %>
     <%= link_to "Spam", admin_spams_path %>
+
+    <%= form_tag nil, :method => :get do %>
+      <%= text_field_tag "start_date", params[:start_date], placeholder: "start date", :data => {:datepicker => nil} %>
+      <%= text_field_tag "end_date", params[:end_date], placeholder: "end date", :data => {:datepicker => nil} %>
+      <%= submit_tag "Filter", :class => "button" %>
+    <% end %>
+
   </div>
 
 

@@ -2,7 +2,8 @@ class Admin::SpamsController < AdminController
   before_filter :admin
 
   def index
-    @spams = Spam.all
+    @spams = Spam.where(created_at: params[:start_date]..params[:end_date])
+
   end
 
   def destroy

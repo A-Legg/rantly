@@ -1,7 +1,7 @@
 class RantsController < ApplicationController
 
   def show
-    @user = current_user
+    @user = User.find_by(params[:user_id])
     @rant = Rant.new
     @_rant = Rant.find(params[:id])
     @comment = Comment.new
