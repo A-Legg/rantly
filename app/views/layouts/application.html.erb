@@ -8,22 +8,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if admin %>
+
+<% if session[:user_id] && session[:admin_id] %>
 <header class="header">
   <section class="clearfix">
     <div class="wrapper">
         <span class="links">
-          <%= link_to "Rant.ly", admin_dashboard_path(@user), class: "logo" %>
-          <%= link_to "Dashboard", admin_dashboard_path(@user), class: "dashboard-links" %>
-          <%= link_to "Rants", admin_rants_path, class: "dashboard-links" %>
-          <%= link_to "Users", admin_users_path, class: "dashboard-links" %>
+          <%= link_to "Rant.ly", dashboard_path(current_user), class: "logo" %>
+          <%= link_to "Back to Admin Section", unimpersonate_path(session[:admin_id]), class: "dashboard-links" %>
+          <%= link_to "Dashboard", dashboard_path(session[:user_id]), class: "dashboard-links" %>
+          <%= link_to "Following", user_following_relationships_path(current_user.id), class: "dashboard-links" %>
+          <%= link_to "Favorites", "/users/#{current_user.id}/favorites", class: "dashboard-links" %>
+          <%= link_to "Search", searches_path, class: "dashboard-links" %>
           <%= link_to "Logout", signout_path, class: "button  logout_button" %>
         </span>
     </div>
   </section>
 </header>
 
-<% elsif current_user %>
+
+<% elsif session[:user_id] %>
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
@@ -38,7 +42,22 @@
       </div>
     </section>
   </header>
-<% else %>
+
+<% elsif session[:admin_id]  %>
+  <header class="header">
+    <section class="clearfix">
+      <div class="wrapper">
+        <span class="links">
+          <%= link_to "Rant.ly", admin_dashboard_path(session[:admin_id]), class: "logo" %>
+          <%= link_to "Dashboard", admin_dashboard_path(session[:admin_id]), class: "dashboard-links" %>
+          <%= link_to "Rants", admin_rants_path, class: "dashboard-links" %>
+          <%= link_to "Users", admin_users_path, class: "dashboard-links" %>
+          <%= link_to "Logout", signout_path, class: "button  logout_button" %>
+        </span>
+      </div>
+    </section>
+  </header>
+  <% else %>
   <header class="header">
     <section class="clearfix">
       <div class="wrapper">
