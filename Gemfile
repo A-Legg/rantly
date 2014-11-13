@@ -55,6 +55,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'
+gem 'redcarpet'
+gem 'keen'
 
 
 

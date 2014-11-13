@@ -16,6 +16,7 @@ class RantsController < ApplicationController
     @rant = Rant.new(rant_params)
     @rant.user_id = current_user.id
     if @rant.save
+      Keen.publish(:rants, :username => @rant.user.username)
       flash[:notice] = "Rant Successful!"
 #       if @user.followers != nil
 #         @user.followers.each do |follower|

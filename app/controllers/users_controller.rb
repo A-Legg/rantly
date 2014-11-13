@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     confirmation_token = @user.confirmation_token
     if @user.save
+      Keen.publish(:users, :username => @user.username)
       UserMailer.welcome_email(@user).deliver
       UserMailer.confirmation_email(@user, confirmation_url(confirmation_token)).deliver
       flash[:notice] = 'You have registered successfully!'

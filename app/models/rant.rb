@@ -11,11 +11,12 @@ class Rant < ActiveRecord::Base
 
 
   def rendered_rant
-    tag_search(rant)
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    .render(tag_search(rant)).html_safe
   end
 
   def tag_search(text)
-    text.gsub(/\#(\w+)/, '<a href="/searches?utf8=✓&search=\1&commit=search>#\1</a>' ).html_safe
+    text.gsub(/\#(\w+)/, '<a href="/searches?utf8=✓&search=\1&commit=search">#\1</a>' )
   end
 
 end

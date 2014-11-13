@@ -3,13 +3,9 @@ class User < ActiveRecord::Base
 
   attr_accessor :avatar
 
-
-
-
   has_attached_file :avatar, :styles => { :small => "100x100>", :thumb => "25x25>" }, :default_url => "http://images.sodahead.com/polls/000547669/polls_profiles_1202SHAvatarFred_1028_226520_xlarge_4111_489972_answer_1_xlarge.jpeg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
-
 
 
   has_many :rants, :dependent => :destroy

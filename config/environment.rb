@@ -12,5 +12,7 @@ ActionMailer::Base.smtp_settings = {
 }
 
 
+
+
 # Initialize the Rails application.
 Rails.application.initialize!
