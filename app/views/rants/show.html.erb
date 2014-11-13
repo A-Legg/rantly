@@ -7,7 +7,9 @@
       <% end %>
     <% end %>
   </div>
-
+ <div class="avatar">
+   <%= image_tag @user.avatar.url(:thumb) %>
+ </div>
   <div class="profile-link">
     <%= link_to "#{current_user.first_name} #{current_user.last_name}", edit_user_path(current_user.id) %>
   </div>
