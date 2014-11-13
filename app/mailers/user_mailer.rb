@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
 
   default from: 'notifications@localhost.com'
-  default host: Rails.root
+
 
   def welcome_email(user)
     @user = user

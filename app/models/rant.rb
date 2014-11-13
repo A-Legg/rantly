@@ -15,7 +15,7 @@ class Rant < ActiveRecord::Base
   end
 
   def tag_search(text)
-    text.gsub(/\#(\w+)/, '<a href="/searches?utf8=✓&search=\1&commit=search>#\1</a>' )
+    text.gsub(/\#(\w+)/, '<a href="/searches?utf8=✓&search=\1&commit=search>#\1</a>' ).html_safe
   end
 
 end

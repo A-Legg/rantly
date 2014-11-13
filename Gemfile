@@ -50,7 +50,8 @@ gem 'rails_12factor'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem "rmagick"
-gem "carrierwave"
+
+gem 'paperclip'
 gem 'aws-sdk'
 gem 'bootstrap-datepicker-rails'
 gem 'figaro'

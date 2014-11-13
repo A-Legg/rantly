@@ -1,7 +1,9 @@
 <div class="rant-form-container">
 
 
-
+<div class="avatar">
+  <%= image_tag @user.avatar.url(:thumb) %>
+</div>
 
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
