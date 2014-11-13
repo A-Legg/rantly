@@ -3,6 +3,10 @@
 <div class="admin">
   <h1 class="latest-rants-header">Dashboard</h1>
 
+  <div class="rants-per-day">
+    <h2>Rants per day</h2>
 
+  <%= column_chart Rant.group_by_day(:created_at).count %>
+    </div>
 
 </div>

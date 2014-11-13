@@ -57,7 +57,8 @@ gem 'bootstrap-datepicker-rails'
 gem 'figaro'
 gem 'redcarpet'
 gem 'keen'
-
+gem 'chartkick'
+gem 'groupdate'
 
 
 
