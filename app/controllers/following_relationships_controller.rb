@@ -1,18 +1,22 @@
 class FollowingRelationshipsController < ApplicationController
-
+  respond_to :json
   def index
     @rant = Rant.new
     @following_relationships = FollowingRelationship.where(:follower_id => current_user.id)
   end
 
   def create
-    current_user.follow(user)
-    redirect_to :back
+    @following_relationship = FollowingRelationship.new
+    @following_relationship.follower_id = current_user.id
+    @following_relationship.followed_user_id = params[:id]
+    @following_relationship.save
+   respond_with User.find(params[:id])
   end
 
   def destroy
-    current_user.unfollow(user)
-    redirect_to :back
+    @following_relationship = FollowingRelationship.where(followed_user_id: params[:id], follower_id: current_user.id).first
+    @following_relationship.destroy
+    render json: User.find(params[:id])
   end
 
   private

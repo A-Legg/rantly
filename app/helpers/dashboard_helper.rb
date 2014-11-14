@@ -2,9 +2,9 @@ module DashboardHelper
 
   def follow_link(user)
     if current_user.following?(user)
-      link_to "Unfollow", user_following_relationship_path(:id => current_user.id, :user_id => user.id), {method: :delete}
+      link_to "Unfollow", user_following_relationship_path(:id => current_user.id, :user_id => user.id), method: :delete, data: {'followed-user-id' => user.id, following: true}
     else
-      link_to "Follow", user_following_relationships_path(:user_id => user.id, :id => current_user.id), {method: :post}
+      link_to "Follow", user_following_relationships_path(:user_id => user.id, :id => current_user.id), method: :post, data: {'followed-user-id' => user.id, following: false}
     end
   end
 

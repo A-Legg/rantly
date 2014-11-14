@@ -18,21 +18,56 @@
 
 $(document).ready(function () {
 
-//  $('.dashboard-content').on('click', '.follow-link', function () {
-//    $('.dashboard-content').css("background-color","blue");
-//
-//
-//
-//    $(this).removeClass(".follow-link")
-//    $(this).addClass(".unfollow-link")
-////    $(this).parents('.dashboard-content').css('background-color, "blue"');
-//    debugger;
 
-//    $.post("/users/:user_id/following", { followed_user_id: 25, follower_id: current_user.id }
-//      .done(function( data ) {
-//        alert( "Data Loaded: " + data );
-//
-//  });
+  $('[data-following]').on('click', function (e) {
+    console.log('clicked');
+    e.preventDefault();
+    e.stopPropagation();
+    var followLink = this
+    var follow = this.dataset.following;
+
+    if (follow == 'true') {
+      console.log('clicked on true');
+      followFunctions.unfollow(followLink)
+    }
+    else {
+      console.log('clicked on false')
+      followFunctions.follow(followLink);
+    }
+  })
+
+  var followFunctions = {
+
+    unfollow: function (link) {
+      console.log('making unfollow ajax call');
+      $.ajax({
+        type: 'delete',
+        url: '/users/0/following/' + link.dataset.followedUserId,
+        dataType: 'json',
+        success: function(data) {
+          $('[data-followed-user-id="' + data.id + '"]').each(function() {
+            this.dataset.following = 'false';
+            $(this).text("Follow")
+
+          })
+        }
+      })
+
+    },
+    follow: function (link) {
+      console.log('making follow ajax call')
+      $.post('/users/0/following.json', {id: link.dataset.followedUserId}).success(function(data) {
+        $('[data-followed-user-id="' + data.id + '"]').each(function() {
+          this.dataset.following = 'true';
+          $(this).text("Unfollow")
+
+        })
+      })
+    }
+
+
+  };
+
 
   $('[data-favorite]').on('click', function (e) {
     e.preventDefault();
@@ -68,9 +103,16 @@ $(document).ready(function () {
 
     unfavorited: function (link) {
       console.log('callback');
-      link.dataset.favorite = 'false';
-      link.dataset.count--;
-      $(link).text('Favorite (' + link.dataset.count + ')');
+      var location = window.location.href;
+      var rantId = link.dataset.rantId;
+      var rant = $('section').find("[data-rant-id='" + rantId + "']");
+      if(location.indexOf('favorites') > -1) {
+        rant.remove();
+      }
+        link.dataset.favorite = 'false';
+        link.dataset.count--;
+        $(link).text('Favorite (' + link.dataset.count + ')');
+
     },
 
 

@@ -16,7 +16,7 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.where(rant_id: params[:id], user_id: current_user.id).first
     @favorite.destroy
-    respond_with Rant.find(params[:id])
+    render json: Rant.find(params[:id])
   end
 
   def index

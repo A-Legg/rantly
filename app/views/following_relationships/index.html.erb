@@ -35,7 +35,7 @@
 
     <br>
     <div>
-      <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), {:method => :delete} %>
+      <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), method: :delete, data: {'followed-user-id' => follower.followed_user.id, following: true} %>
     </div>
   <% end %>
 </div>

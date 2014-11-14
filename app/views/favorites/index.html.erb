@@ -30,6 +30,7 @@
 <section class="dashboard-content">
   <h1 class="latest-rants-header">Favorites</h1>
   <% @favorites.each do |favorite| %>
+    <%= tag("section", class:"favorite-rant", :data => {:rant_id => favorite.rant.id}) %>
     <div class="rant-user-info">
       <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
 
@@ -48,6 +49,7 @@
         <%= link_to "Unfavorite(#{favorite.rant.favorites.count})", user_favorite_path(:rant_id => favorite.rant.id, :user_id => current_user.id, :id => favorite), method: :delete, data: {'rant-id' => favorite.rant.id, favorite: true, count: favorite.rant.favorites.count} %>
       </div>
     </div>
+    </section>
   <% end %>
   </div>
 </section>
