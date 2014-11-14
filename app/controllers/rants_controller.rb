@@ -15,7 +15,7 @@ class RantsController < ApplicationController
   def create
     @rant = Rant.new(rant_params)
     @rant.user_id = current_user.id
-    @rant.rendered_rant
+
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
       flash[:notice] = "Rant Successful!"

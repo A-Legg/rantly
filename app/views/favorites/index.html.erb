@@ -45,7 +45,7 @@
         <%= favorite.rant.rant %>
       </div>
       <div class="favorite-link">
-        <%= link_to "#{favorite.rant.favorites.count} - Unfavorite", user_favorite_path(:rant_id => favorite.rant.id, :user_id => current_user.id, :id => favorite), {method: :delete} %>
+        <%= link_to "Unfavorite(#{favorite.rant.favorites.count})", user_favorite_path(:rant_id => favorite.rant.id, :user_id => current_user.id, :id => favorite), method: :delete, data: {'rant-id' => favorite.rant.id, favorite: true, count: favorite.rant.favorites.count} %>
       </div>
     </div>
   <% end %>

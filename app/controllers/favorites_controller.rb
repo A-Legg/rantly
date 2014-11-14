@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  respond_to :json
 
   def new
     @favorite = Favorite.new
@@ -7,15 +8,15 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new
     @favorite.user_id = current_user.id
-    @favorite.rant_id = params[:rant_id]
+    @favorite.rant_id = params[:id]
     @favorite.save
-    redirect_to :back
+    respond_with Rant.find(params[:id])
   end
 
   def destroy
-    @favorite = Favorite.where(rant_id: params[:rant_id], user_id: current_user.id).first
+    @favorite = Favorite.where(rant_id: params[:id], user_id: current_user.id).first
     @favorite.destroy
-    redirect_to :back
+    respond_with Rant.find(params[:id])
   end
 
   def index

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
-    post 'follow' => 'following_relationships#create'
+
     resources :favorites
 
   end

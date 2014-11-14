@@ -9,6 +9,6 @@ class Admin::SpamsController < AdminController
   def destroy
     @spam = Spam.find_by(params[:spam_id])
     @spam.destroy
-    redirect_to admin_rants_path
+    render :back
   end
 end

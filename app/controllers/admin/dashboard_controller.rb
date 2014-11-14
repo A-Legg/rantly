@@ -3,7 +3,7 @@ class Admin::DashboardController < AdminController
 
   def show
     @user = User.find(params[:id])
-    @logins = Keen.event_collections
+    @logins = Keen.query("count", "logins", :timeframe => "today", :group_by => "created_at", :interval => "hourly")
   end
 
 
