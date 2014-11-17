@@ -18,11 +18,6 @@ class RantsController < ApplicationController
     @rant.description = params[:description]
     @rant.rant = params[:rant]
     @rant.user_id = current_user.id
-
-
-
-
-
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
 
@@ -33,7 +28,6 @@ class RantsController < ApplicationController
 # end
     render json: @rant
     else
-
       errors = @rant.errors.messages
       render json: {errors: errors}
     end

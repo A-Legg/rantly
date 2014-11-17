@@ -49,12 +49,7 @@ $(document).ready(function () {
         success: function(data) {
           $('[data-followed-user-id="' + data.id + '"]').each(function() {
             this.dataset.following = 'false';
-//            var location = window.location.href;
-////            var followedUserId = link.dataset.followedUserId;
-////            var follow = $('section').find("[data-followed-user-id='" + followedUserId + "']");
-////            if(location.indexOf('follow-user') > -1) {
-////              follow.remove();
-
+            location.reload();
             $(this).text("Follow")
 
           })
@@ -147,9 +142,10 @@ $(document).ready(function () {
       }
     else {
       $.post('/rants.json', {description: description, rant: rant});
-      $('.errors').empty('');
-      $('#rant_description').val('');
-      $('#rant_rant').val('');
+      location.reload();
+//      $('.errors').empty('');
+//      $('#rant_description').val('');
+//      $('#rant_rant').val('');
 
     }
 
