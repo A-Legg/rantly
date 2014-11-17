@@ -172,17 +172,3 @@ $(document).ready(function () {
 })
 ;
 
-//
-//if (description.length > 50){
-//  $('.errors').append('Description must be less than 50 characters');
-//}
-//if (rant.length < 140){
-//  $('.errors').append('Rant must be more than 140 characters');
-//}
-//if ((description.length < 50) && (rant.length > 14)) {
-//  $('.errors').val('');
-//}
-//
-//
-//
-//
