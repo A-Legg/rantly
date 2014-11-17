@@ -31,7 +31,8 @@ end
       errors = @rant.errors.messages
       render json: {errors: errors}
     end
-  end
+    end
+    end
 
 
   def destroy
