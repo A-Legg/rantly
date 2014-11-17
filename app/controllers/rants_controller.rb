@@ -1,4 +1,5 @@
 class RantsController < ApplicationController
+  respond_to :json
 
   def show
     @user = User.find_by(params[:user_id])
@@ -13,8 +14,14 @@ class RantsController < ApplicationController
   end
 
   def create
-    @rant = Rant.new(rant_params)
+    @rant = Rant.new
+    @rant.description = params[:description]
+    @rant.rant = params[:rant]
     @rant.user_id = current_user.id
+
+
+
+
 
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
@@ -24,10 +31,10 @@ class RantsController < ApplicationController
 #           UserMailer.followed_email(follower.email, @rant).deliver
 #
 # end
-      redirect_to dashboard_path(current_user)
+    render json: @rant
     else
       flash[:error] = "Title must be less than 50 characters and Rant more than 140 characters."
-      render dashboard_path(current_user)
+      render json: {errors: errors}
     end
   end
 
@@ -41,8 +48,6 @@ class RantsController < ApplicationController
 
   private
 
-  def rant_params
-    params.require(:rant).permit(:rant, :description)
-  end
+
 
 end

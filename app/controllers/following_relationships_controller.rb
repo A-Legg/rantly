@@ -10,7 +10,7 @@ class FollowingRelationshipsController < ApplicationController
     @following_relationship.follower_id = current_user.id
     @following_relationship.followed_user_id = params[:id]
     @following_relationship.save
-   respond_with User.find(params[:id])
+   render json: User.find(params[:id])
   end
 
   def destroy

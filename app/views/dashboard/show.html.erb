@@ -24,7 +24,7 @@
       <br>
       <%= f.text_area :rant, class: "rant-textbox" %>
       <div class="rant-submit">
-        <%= f.submit "RANT", class: "rant_button" %>
+        <%= f.submit "RANT", class: "rant_button", data: {:user_id => current_user.id} %>
       </div>
     <% end %>
   </div>

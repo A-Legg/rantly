@@ -39,6 +39,8 @@ $(document).ready(function () {
   var followFunctions = {
 
     unfollow: function (link) {
+
+
       console.log('making unfollow ajax call');
       $.ajax({
         type: 'delete',
@@ -47,6 +49,12 @@ $(document).ready(function () {
         success: function(data) {
           $('[data-followed-user-id="' + data.id + '"]').each(function() {
             this.dataset.following = 'false';
+//            var location = window.location.href;
+////            var followedUserId = link.dataset.followedUserId;
+////            var follow = $('section').find("[data-followed-user-id='" + followedUserId + "']");
+////            if(location.indexOf('follow-user') > -1) {
+////              follow.remove();
+
             $(this).text("Follow")
 
           })
@@ -64,7 +72,6 @@ $(document).ready(function () {
         })
       })
     }
-
 
   };
 
@@ -126,6 +133,23 @@ $(document).ready(function () {
 
   };
 
+  $('.rant_button').on('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var description = $('#rant_description').val();
+    var rant = $('#rant_rant').val();
+    $.post('/rants.json', {description: description, rant: rant});
+    $('#rant_description').val('');
+    $('#rant_rant').val('');
+
+
+    });
+
+
+
+
+
+
 
   setTimeout(function () {
     $(".flash").fadeOut('slow');
@@ -138,5 +162,7 @@ $(document).ready(function () {
 
 })
 ;
+
+
 
 

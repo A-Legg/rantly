@@ -1,4 +1,4 @@
-<div class="rant-form-container">
+<div class="rant-form-container" xmlns="http://www.w3.org/1999/html">
   <div class="errors">
     <% if @rant.errors.any? %>
       <% @rant.errors.full_messages.each do |error| %>
@@ -30,12 +30,17 @@
 
 <div class="dashboard-content">
   <h1 class="latest-rants-header">Following</h1>
+
   <% @following_relationships.each do |follower| %>
+    <%= tag("section", class:"follow-user", :data => {:followed_user_id => follower.followed_user.id}) %>
+
     <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
 
     <br>
     <div>
-      <%= link_to "Unfollow", user_following_relationship_path(:user_id => follower.followed_user.id, :id => current_user.id), method: :delete, data: {'followed-user-id' => follower.followed_user.id, following: true} %>
+      <%= link_to "Unfollow", user_following_relationship_path(:follower_id => current_user.id, :id => follower.followed_user.id), method: :delete, data: {'followed-user-id' => follower.followed_user.id, following: true} %>
+
     </div>
+    </section>
   <% end %>
 </div>
