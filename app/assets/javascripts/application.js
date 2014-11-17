@@ -138,15 +138,24 @@ $(document).ready(function () {
     e.stopPropagation();
     var description = $('#rant_description').val();
     var rant = $('#rant_rant').val();
-    $.post('/rants.json', {description: description, rant: rant});
-    $('#rant_description').val('');
-    $('#rant_rant').val('');
+
+    if (description.length > 50){
+  $('.errors').append('Description must be less than 50 characters');
+    }
+    else if (rant.length < 140){
+    $('.errors').append('Rant must be more than 140 characters');
+      }
+    else {
+      $.post('/rants.json', {description: description, rant: rant});
+      $('.errors').empty('');
+      $('#rant_description').val('');
+      $('#rant_rant').val('');
+
+    }
+
 
 
     });
-
-
-
 
 
 
@@ -163,6 +172,17 @@ $(document).ready(function () {
 })
 ;
 
-
-
-
+//
+//if (description.length > 50){
+//  $('.errors').append('Description must be less than 50 characters');
+//}
+//if (rant.length < 140){
+//  $('.errors').append('Rant must be more than 140 characters');
+//}
+//if ((description.length < 50) && (rant.length > 14)) {
+//  $('.errors').val('');
+//}
+//
+//
+//
+//

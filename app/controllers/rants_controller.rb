@@ -25,7 +25,7 @@ class RantsController < ApplicationController
 
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
-      flash[:notice] = "Rant Successful!"
+
 #       if @user.followers != nil
 #         @user.followers.each do |follower|
 #           UserMailer.followed_email(follower.email, @rant).deliver
@@ -33,7 +33,8 @@ class RantsController < ApplicationController
 # end
     render json: @rant
     else
-      flash[:error] = "Title must be less than 50 characters and Rant more than 140 characters."
+
+      errors = @rant.errors.messages
       render json: {errors: errors}
     end
   end

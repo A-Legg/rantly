@@ -30,7 +30,7 @@
 <section class="dashboard-content">
   <h1 class="latest-rants-header">Favorites</h1>
   <% @favorites.each do |favorite| %>
-    <%= tag("section", class:"favorite-rant", :data => {:rant_id => favorite.rant.id}) %>
+    <%= tag("section", class:"favorite-rant", :data => {:rant_id => favorite.rant}) %>
     <div class="rant-user-info">
       <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
 
