@@ -21,11 +21,11 @@ class RantsController < ApplicationController
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
 
-#       if @user.followers != nil
-#         @user.followers.each do |follower|
-#           UserMailer.followed_email(follower.email, @rant).deliver
-#
-# end
+      if @user.followers != nil
+        @user.followers.each do |follower|
+          UserMailer.followed_email(follower.email, @rant).deliver
+
+end
     render json: @rant
     else
       errors = @rant.errors.messages
