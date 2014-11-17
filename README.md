@@ -1,5 +1,5 @@
 
-http://evening-plains-1233.herokuapp.com/
+http://rantly-adam.herokuapp.com/
 
 # Rantly
 
