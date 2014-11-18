@@ -18,11 +18,11 @@ module DashboardHelper
   end
 
   def spam_link(rant)
-    spam = Spam.where(rant_id: rant.id, user_id: current_user.id).first
-    if spam
-      link_to "Unspam", spam_path(rant_id: rant.id, user_id: current_user.id), {method: :delete}
+
+    if rant.spam == true
+      link_to "Unspam", rant_spam_path(rant_id: rant.id), {method: :post}
     else
-      link_to "Spam", spams_path(rant_id: rant.id, user_id: current_user.id), {method: :post}
+      link_to "Spam", rant_spam_path(rant_id: rant.id), {method: :post}
     end
   end
 

@@ -25,25 +25,34 @@ class RantsController < ApplicationController
         @user.followers.each do |follower|
           UserMailer.followed_email(follower.email, @rant).deliver
 
-end
-    render json: @rant
-    else
-      errors = @rant.errors.messages
-      render json: {errors: errors}
+        end
+        render json: @rant
+      else
+        errors = @rant.errors.messages
+        render json: {errors: errors}
+      end
     end
-    end
-    end
+  end
 
 
   def destroy
     @rant = Rant.find(params[:id])
     @rant.destroy
-    redirect_to dashboard_path(session[:user_id])
+    redirect_to :back
+  end
+
+  def spam
+    Rant.find(params[:rant_id]).toggle!(:spam)
+    redirect_to :back
+  end
+
+  def destroy_spam
+    Rant.find(params[:rant_id]).destroy
+    redirect_to :back
   end
 
 
   private
-
 
 
 end

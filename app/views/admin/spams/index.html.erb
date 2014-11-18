@@ -23,12 +23,13 @@
     </tr>
     </thead>
     <tbody>
-    <% @spams.each do |spam| %>
+
+    <% @rants.each do |rant| %>
       <tr>
-        <td><%= "#{spam.rant.user.first_name} "  "#{spam.rant.user.last_name}"  %></td>
-        <td><%= spam.rant.user.email %></td>
-        <td><%= spam.rant.description %></td>
-        <td><%= link_to "Not Spam", admin_spam_path(spam.rant), {method: :delete} %> <%= link_to "Delete", admin_rant_path(spam.rant), {method: :delete} %></td>
+        <td><%= "#{rant.user.first_name} "  "#{rant.user.last_name}"  %></td>
+        <td><%= rant.user.email %></td>
+        <td><%= rant.description %></td>
+        <td><%= link_to "Not Spam", rant_spam_path(rant), {method: :post} %> <%= link_to "Delete", rant_path(rant), {method: :delete} %></td>
       </tr>
     <% end %>
     </tbody>

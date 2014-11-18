@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   post "/users/:user_id/comments" => "comments#user_comment", as: :user_comments
   post "rants/:rant_id/comments" => "comments#rant_comment", as: :rant_comments
+  post "rants/:rant_id/spam" => "rants#spam", as: :rant_spam
+  delete "rants/:rant_id/" => "rants#destroy_spam", as: :destroy_spam
 
   resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :following_relationships, :path  => 'following', only: [:show, :create, :index, :destroy]
