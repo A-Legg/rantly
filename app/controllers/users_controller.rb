@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @rant = Rant.new
+    @rants = Rant.where(user_id: @user.id).sort_by { |rant| -Favorite.where(rant_id: rant.id).count }
     @comment = Comment.new
     @comments = Comment.where(:commentable_id => @user.id)
   end
