@@ -42,7 +42,7 @@ class RantsController < ApplicationController
   end
 
   def spam
-    Rant.find(params[:rant_id]).toggle!(:spam)
+    Rant.find(params[:rant_id]).toggle(:spam)
     redirect_to :back
   end
 
