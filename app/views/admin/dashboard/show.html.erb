@@ -13,10 +13,11 @@
   </div>
   <div class="admin-cahrt">
     <h2>Logins</h2>
-
-
-
-
+    <%= column_chart Keen.count_unique("logins", :target_property => "timestamp")   %>
+   </div>
+  <div class="admin-cahrt">
+    <h2>Logins per hour</h2>
+    <%= column_chart Keen.count_unique("logins", :target_property => "timestamp")  %>
   </div>
 
 
