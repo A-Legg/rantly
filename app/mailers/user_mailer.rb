@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
 
-  default from: 'notifications@localhost.com'
+  default from: 'admin@rantly.com'
 
 
   def welcome_email(user)

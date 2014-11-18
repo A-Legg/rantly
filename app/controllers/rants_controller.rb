@@ -14,6 +14,7 @@ class RantsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @rant = Rant.new
     @rant.description = params[:description]
     @rant.rant = params[:rant]
