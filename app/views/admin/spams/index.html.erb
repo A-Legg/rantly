@@ -29,7 +29,7 @@
         <td><%= "#{rant.user.first_name} "  "#{rant.user.last_name}"  %></td>
         <td><%= rant.user.email %></td>
         <td><%= rant.description %></td>
-        <td><%= link_to "Not Spam", rant_spam_path(rant), {method: :post} %> <%= link_to "Delete", rant_path(rant), {method: :delete} %></td>
+        <td><%= link_to "Not Spam", rant_spam_path(rant) %> <%= link_to "Delete", rant_path(rant), {method: :delete} %></td>
       </tr>
     <% end %>
     </tbody>
