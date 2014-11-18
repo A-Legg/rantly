@@ -17,7 +17,7 @@ class UserMailer < ActionMailer::Base
 
   def followed_email(follower, rant)
     @rant = rant
-    mail(to: follower.email, subject: "New Rant from #{rant.user.username}")
+    mail(to: follower.email, subject: "New Rant from #{@rant.user.username}")
   end
 
 

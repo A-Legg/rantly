@@ -31,7 +31,7 @@ class RantsController < ApplicationController
         render json: {errors: errors}
       end
     end
-  
+
 
 
   def destroy
