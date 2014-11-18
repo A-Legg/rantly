@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       UserMailer.welcome_email(@user).deliver
       UserMailer.confirmation_email(@user, confirmation_url(confirmation_token)).deliver
       flash[:notice] = 'You have registered successfully!'
-
       flash[:notice] = "Please verify email to login"
       redirect_to root_path
     else
@@ -41,7 +40,6 @@ class UsersController < ApplicationController
   def activate
     @user = User.find_by_confirmation_token(params[:confirmation_token])
     @user.update_attribute('confirmed', true)
-
     flash[:notice] = "Account has been Verified."
     redirect_to signin_path
 

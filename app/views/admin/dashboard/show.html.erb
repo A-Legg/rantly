@@ -11,14 +11,15 @@
     <h2>Signups per day</h2>
     <%= column_chart User.group_by_day(:created_at).count %>
   </div>
-  <div class="admin-cahrt">
-    <h2>Logins</h2>
-    <%= column_chart @logins   %>
-   </div>
-  <div class="admin-cahrt">
-    <h2>Logins per hour</h2>
-    <%=  %>
-  </div>
+  <div class="admin-cahrt" id="my_chart">
+    </div>
+
+  <div class=" admin-cahrt">
+<h1>Total number of logins</h1>
+    <div class="number">
+  <%= Keen.query("count", "logins") %>
+</div>
+    </div>
 
 
 </div>
