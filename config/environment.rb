@@ -11,6 +11,8 @@ ActionMailer::Base.smtp_settings = {
 
 }
 
+config.action_mailer.default_url_options = { :host => 'http://rantly-adam.herokuapp.com/' }
+
 
 
 
