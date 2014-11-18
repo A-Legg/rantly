@@ -21,7 +21,6 @@ class RantsController < ApplicationController
     @rant.user_id = current_user.id
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
-
       @user.followers.each do |follower|
         UserMailer.followed_email(follower, @rant).deliver
       end
