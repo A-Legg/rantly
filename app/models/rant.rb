@@ -2,7 +2,7 @@ class Rant < ActiveRecord::Base
 
   belongs_to :user
   has_many :favorites
-  has_many :spams
+
 
   has_many :comments, :as => :commentable
   validates :rant, :description, presence: true

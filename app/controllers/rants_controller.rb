@@ -42,17 +42,22 @@ class RantsController < ApplicationController
   end
 
   def spam
-    Rant.find(params[:rant_id]).toggle(:spam)
+    Rant.find(params[:rant_id]).toggle!(:spam)
+    flash[:notice] = "Rant has been marked as spam!"
     redirect_to :back
   end
 
   def destroy_spam
     Rant.find(params[:rant_id]).destroy
+    @favorites = Favorite.where(rant_id: params[:rant_id])
+    @favorites.destroy_all
     redirect_to :back
   end
 
 
-  private
+
+
+
 
 
 end

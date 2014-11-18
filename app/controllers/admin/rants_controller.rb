@@ -31,4 +31,6 @@ class Admin::RantsController < AdminController
 
 
 
+
+
 end

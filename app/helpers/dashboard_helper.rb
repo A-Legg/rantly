@@ -19,7 +19,7 @@ module DashboardHelper
 
   def spam_link(rant)
 
-    if rant.spam == true
+    if rant.spam?
       link_to "Unspam", rant_spam_path(rant_id: rant.id), {method: :post}
     else
       link_to "Spam", rant_spam_path(rant_id: rant.id), {method: :post}
