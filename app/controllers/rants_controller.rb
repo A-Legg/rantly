@@ -20,11 +20,9 @@ class RantsController < ApplicationController
     @rant.user_id = current_user.id
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
-
       if @user.followers != nil
         @user.followers.each do |follower|
-          UserMailer.followed_email(follower.email, @rant).deliver
-
+          UserMailer.followed_email(follower, @rant).deliver
         end
         render json: @rant
       else
