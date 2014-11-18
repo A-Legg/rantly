@@ -22,16 +22,15 @@ class RantsController < ApplicationController
     if @rant.save
       Keen.publish(:rants, :username => @rant.user.username)
 
-        @user.followers.each do |follower|
-          UserMailer.followed_email(follower, @rant).deliver
-        end
-        render json: @rant
-      else
-        errors = @rant.errors.messages
-        render json: {errors: errors}
+      @user.followers.each do |follower|
+        UserMailer.followed_email(follower, @rant).deliver
       end
+      render json: @rant
+    else
+      errors = @rant.errors.messages
+      render json: {errors: errors}
     end
-
+  end
 
 
   def destroy
@@ -52,11 +51,6 @@ class RantsController < ApplicationController
     @favorites.destroy_all
     redirect_to :back
   end
-
-
-
-
-
 
 
 end
