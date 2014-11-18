@@ -43,7 +43,7 @@ class RantsController < ApplicationController
   def spam
     Rant.find(params[:rant_id]).toggle!(:spam)
     flash[:notice] = "Rant has been marked as spam!"
-    redirect_to :back
+    redirect_to dashboard_path(current_user)
   end
 
   def destroy_spam
