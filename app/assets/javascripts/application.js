@@ -153,9 +153,6 @@ $(document).ready(function () {
 
     });
 
-
-
-
   setTimeout(function () {
     $(".flash").fadeOut('slow');
   }, 1000);
@@ -164,43 +161,61 @@ $(document).ready(function () {
 
   $('#end_date').datepicker({format: "yyyy-mm-dd", orientation: 'top auto'});
 
-  var client = new Keen({
-    projectId: "5464ed14bcb79c5a0c792171",
-    readKey: "06ee4f99ad5709a00f0df77a17379006ac62db9121414a6fced555196634df4679e0934b2db1626c387d377b061fa44bd144da96890802df8c2e8b6fdd43997e98bae299b0d549991947994f4e2ed4689d372577d790f27610b454dfe302dc935a171637fe3d1c2a55ad4c1151f52819"
-  });
-  Keen.ready(function(){
-    var query = new Keen.Query("count", {
-      eventCollection: "logins",
-      timeframe: "today",
-      interval: "hourly",
-      groupBy: "keen.timestamp"
-    });
-    client.draw(query, document.getElementById("my_chart"), {
-      // Custom configuration here
-      chartType: "columnchart",
-      title: "Logins per hour"
-    });
-  });
+//  var client = new Keen({
+//    projectId: "5464ed14bcb79c5a0c792171",
+//    readKey: "06ee4f99ad5709a00f0df77a17379006ac62db9121414a6fced555196634df4679e0934b2db1626c387d377b061fa44bd144da96890802df8c2e8b6fdd43997e98bae299b0d549991947994f4e2ed4689d372577d790f27610b454dfe302dc935a171637fe3d1c2a55ad4c1151f52819"
+//  });
+//  Keen.ready(function(){
+//    var query = new Keen.Query("count", {
+//      eventCollection: "logins",
+//      timeframe: "today",
+//      interval: "hourly",
+//      groupBy: "keen.timestamp"
+//    });
+//    client.draw(query, document.getElementById("my_chart"), {
+//      // Custom configuration here
+//      chartType: "columnchart",
+//      title: "Logins per hour"
+//    });
+//  });
 
-  var client = new Keen({
-    projectId: "5464ed14bcb79c5a0c792171",
-    readKey: "06ee4f99ad5709a00f0df77a17379006ac62db9121414a6fced555196634df4679e0934b2db1626c387d377b061fa44bd144da96890802df8c2e8b6fdd43997e98bae299b0d549991947994f4e2ed4689d372577d790f27610b454dfe302dc935a171637fe3d1c2a55ad4c1151f52819"
-
-  });
-  Keen.ready(function(){
-    var query = new Keen.Query("count", {
-      eventCollection: "logins",
-      timeframe: "yearly",
-
-      groupBy: "keen.timestamp"
-    });
-    client.draw(query, document.getElementById("my_chart2"), {
-      // Custom configuration here
-      chartType: "columnchart",
-      title: "Logins"
-    });
-  });
+//  var client = new Keen({
+//    projectId: "5464ed14bcb79c5a0c792171",
+//    readKey: "06ee4f99ad5709a00f0df77a17379006ac62db9121414a6fced555196634df4679e0934b2db1626c387d377b061fa44bd144da96890802df8c2e8b6fdd43997e98bae299b0d549991947994f4e2ed4689d372577d790f27610b454dfe302dc935a171637fe3d1c2a55ad4c1151f52819"
+//
+//  });
+//  Keen.ready(function(){
+//    var query = new Keen.Query("count", {
+//      eventCollection: "logins",
+//      timeframe: "yearly",
+//
+//      groupBy: "keen.timestamp"
+//    });
+//    client.draw(query, document.getElementById("my_chart2"), {
+//      // Custom configuration here
+//      chartType: "columnchart",
+//      title: "Logins"
+//    });
+//  });
 
 })
 ;
+
+var client = new Keen({
+  projectId: "5464ed14bcb79c5a0c792171",
+  readKey: "06ee4f99ad5709a00f0df77a17379006ac62db9121414a6fced555196634df4679e0934b2db1626c387d377b061fa44bd144da96890802df8c2e8b6fdd43997e98bae299b0d549991947994f4e2ed4689d372577d790f27610b454dfe302dc935a171637fe3d1c2a55ad4c1151f52819"
+});
+Keen.ready(function(){
+  var query = new Keen.Query("count", {
+    eventCollection: "logins",
+    timeframe: "today",
+    interval: "hourly",
+    groupBy: "keen.timestamp"
+  });
+  client.draw(query, document.getElementById("my_chart"), {
+    // Custom configuration here
+    chartType: "columnchart",
+    title: "Logins per hour"
+  });
+});
 
