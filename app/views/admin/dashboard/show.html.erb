@@ -1,26 +1,23 @@
-
-
 <div class="admin">
   <h1 class="latest-rants-header">Dashboard</h1>
 
   <div class="admin-cahrt">
     <h2 class="admin-head">Rants per day</h2>
-  <%= column_chart Rant.group_by_day(:created_at).count %>
-    </div>
+    <%= column_chart Rant.group_by_day(:created_at).count %>
+  </div>
   <div class="admin-cahrt">
     <h2 class="admin-head">Signups per day</h2>
     <%= column_chart User.group_by_day(:created_at).count %>
   </div>
   <div class="admin-cahrt" id="my_chart">
-
-    </div>
+  </div>
 
   <div class="admin-cahrt">
-<h2 class="admin-head">Total number of logins</h2>
+    <h2 class="admin-head">Total number of logins</h2>
     <div class="number">
-  <%=  Keen.query("count", "logins") %>
-</div>
+      <%= Keen.query("count", "logins") %>
     </div>
+  </div>
 
 
 </div>
