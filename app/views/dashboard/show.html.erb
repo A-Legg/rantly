@@ -1,10 +1,7 @@
 <div class="rant-form-container">
-
-
 <div class="avatar">
   <%= image_tag @user.avatar.url(:small) %>
 </div>
-
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -31,19 +28,12 @@
 </div>
 <div class="dashboard-content">
   <div class="latest-rants">
-
     <h1 class="latest-rants-header">Latest Rants</h1>
-
     <% @rants.each do |rant| %>
-
       <% if rant.user_id != current_user.id %>
-
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
-
-
           <div class="follow-link">
-
             <%= follow_link(rant.user) %>
           </div>
         </div>
@@ -54,13 +44,10 @@
               <%= link_to 'blah blah', dashboard_path %>
               <% end %>
             <%= favorite_link(rant) %>
-
           </div>
         </div>
       <% end %>
     <% end %>
-
-
   </div>
 
   <div class="my-rants">
@@ -79,7 +66,6 @@
       <% @mentions.each do |rant| %>
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
-
           <div class="follow-link">
             <%= follow_link(rant.user) %>
           </div>

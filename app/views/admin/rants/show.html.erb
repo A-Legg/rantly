@@ -1,19 +1,13 @@
 <div class="admin">
   <article class="dashboard-content">
     <section class="rants">
-
-
       <h1 class="rant-show-header"><%= @rant.description %></h1>
-
       <div class="rant-show">
         <p><%= link_to "#{@rant.user.first_name} #{@rant.user.last_name}", user_path(@rant.user.id) %>
-
       </div>
       <div>
         <%= @rant.rant %>
       </div>
-
-
     </section>
   </article>
 

@@ -10,7 +10,6 @@
   <div class="avatar">
     <%= image_tag @user.avatar.url(:small) %>
   </div>
-
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -37,12 +36,8 @@
   <% @following_relationships.each do |follower| %>
     <%= tag("section", class: "follow-user", :data => {:followed_user_id => follower.followed_user.id}) %>
     <div>
-
       <%= link_to follower.followed_user.first_name, user_path(follower.followed_user.id) %>
-
       <br>
-
-
       <div>
         <%= link_to "Unfollow", user_following_relationship_path(:follower_id => current_user.id, :id => follower.followed_user.id), method: :delete, data: {'followed-user-id' => follower.followed_user.id, following: true} %>
       </div>

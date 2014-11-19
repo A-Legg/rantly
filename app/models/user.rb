@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username, :message => '%{value} has already been taken'
   validates_presence_of :username, :first_name, :last_name, :bio, :email
-
   validates :password, length: {minimum: 8}
 
 

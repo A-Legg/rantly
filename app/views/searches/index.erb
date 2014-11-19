@@ -52,11 +52,11 @@
             <%= link_to markdown(truncate(rant.rant, length: 300)), rant_path(rant.id), class: 'rant-link' %>
           </div>
         <div>
-
         </div>
         <% end %>
       <% end %>
-      <% @rants.each do |rant| %>
+
+    <% @rants.each do |rant| %>
         <div class="rant-user-info">
           <%= link_to "#{rant.user.first_name}", user_path(rant.user.id) %>
           <div>
@@ -67,7 +67,6 @@
           <%= link_to markdown(truncate(rant.rant, length: 300)), rant_path(rant.id), class: 'rant-link' %>
         </div>
       <div>
-
       </div>
       <% end %>
   </section>

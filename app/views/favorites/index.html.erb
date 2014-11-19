@@ -10,7 +10,6 @@
   <div class="avatar">
     <%= image_tag @user.avatar.url(:small) %>
   </div>
-
   <div class="profile-link">
     <%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %>
   </div>
@@ -29,22 +28,18 @@
     <% end %>
   </div>
 </article>
-
 <section class="dashboard-content">
   <h1 class="latest-rants-header">Favorites</h1>
   <% @favorites.each do |favorite| %>
     <%= tag("section", class:"favorite-rant", :data => {:rant_id => favorite.rant.id}) %>
     <div class="rant-user-info">
       <%= link_to favorite.rant.user.first_name, user_path(favorite.user) %>
-
       <div>
         <%= follow_link(favorite.rant.user) %>
       </div>
     </div>
     <div class="rant-text">
-
       <%= favorite.rant.description %>
-
       <div>
         <%= favorite.rant.rant %>
       </div>
