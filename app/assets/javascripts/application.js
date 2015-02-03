@@ -40,8 +40,10 @@ $(document).ready(function () {
 
     unfollow: function (link) {
       console.log('making unfollow ajax call');
+      debugger
       $.ajax({
         type: 'delete',
+
         url: '/users/0/following/' + link.dataset.followedUserId,
         dataType: 'json',
         success: function(data) {

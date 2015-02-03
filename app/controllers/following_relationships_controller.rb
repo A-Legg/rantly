@@ -1,5 +1,6 @@
 class FollowingRelationshipsController < ApplicationController
   respond_to :json
+
   def index
     @rant = Rant.new
     @following_relationships = FollowingRelationship.where(:follower_id => current_user.id)
